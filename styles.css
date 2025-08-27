@@ -143,6 +143,9 @@ body {
     transition: 0.3s;
 }
 
+.header-scrolled .mobile-menu-toggle span {
+    background: #333 !important;
+}
 .site-header:hover .mobile-menu-toggle span {
     background: #333;
 }
@@ -192,14 +195,7 @@ body {
 .mobile-nav-menu li a:hover::after {
     width: 100%;
 }
-.header-scrolled .mobile-menu-toggle span {
-    background: #333 !important;
-    }
 
-.mobile-menu-toggle span {
-    background: white;
-    transition: background-color 0.3s ease;
-    }    
 /* Hero Section */
 .hero {
     height: 100vh;
