@@ -54,16 +54,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Header background on scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
-    if (window.scrollY > 50) {
+    if (window.scrollY > 100) {
         header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        header.classList.add('header-scrolled'); // クラス追加
+        header.classList.add('header-scrolled');
     } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.background = 'rgba(255, 255, 255, 0.1)';  // 元の透明な背景に戻す
         header.style.boxShadow = 'none';
-        header.classList.remove('header-scrolled'); // クラス削除
+        header.classList.remove('header-scrolled');
     }
 });
+
+/* 初期状態を明確に設定 */
+.site-header .logo,
+.site-header .nav-menu a {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* スクロール時のみ黒文字 */
+.site-header.header-scrolled .nav-menu a,
+.site-header.header-scrolled .logo {
+    color: #333 !important;
+    text-shadow: none !important;
+}
 
 // Intersection Observer for animations
 const observerOptions = {
