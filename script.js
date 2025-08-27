@@ -59,26 +59,11 @@ window.addEventListener('scroll', function() {
         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         header.classList.add('header-scrolled');
     } else {
-        header.style.background = 'rgba(255, 255, 255, 0.1)';  // 元の透明な背景に戻す
+        header.style.background = 'rgba(255, 255, 255, 0.1)';
         header.style.boxShadow = 'none';
         header.classList.remove('header-scrolled');
     }
 });
-
-/* 初期状態を明確に設定 */
-.site-header .logo,
-.site-header .nav-menu a {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* スクロール時のみ黒文字 */
-.site-header.header-scrolled .nav-menu a,
-.site-header.header-scrolled .logo {
-    color: #333 !important;
-    text-shadow: none !important;
-}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -235,31 +220,6 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
-// Apply debounce to scroll events
-const debouncedScrollHandler = debounce(function() {
-    // Header background change
-    const header = document.querySelector('.site-header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = 'none';
-    }
-    
-    // Parallax effect
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-}, 10);
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-
 
 // Video background controls
 document.addEventListener('DOMContentLoaded', function() {
