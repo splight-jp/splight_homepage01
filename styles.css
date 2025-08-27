@@ -89,7 +89,7 @@ body {
 .site-header:hover .logo,
 .site-header:hover .nav-menu a {
     color: #333 !important;
-    text-shadow: none;
+    text-shadow: none ;
 }
 
 .nav-menu li a span {
