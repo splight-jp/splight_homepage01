@@ -54,7 +54,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Header background on scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
-    if (window.scrollY > 100) {
+    if (window.scrollY > 0) {
         header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         header.classList.add('header-scrolled'); // クラス追加
