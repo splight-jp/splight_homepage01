@@ -377,18 +377,71 @@ body {
 /* Business Sections */
 .business-section {
     padding: 100px 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.energy-section {
-    background: white;
+.business-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); /* 白いオーバーレイで文字を読みやすく */
+    z-index: 1;
 }
 
-.education-section {
-    background: #f8f9fa;
+.business-section .container {
+    position: relative;
+    z-index: 2;
 }
 
-.agriculture-section {
-    background: white;
+.agrivoltaics-section {
+    background-image: url('images/agrivoltaics-background.jpg');
+}
+
+.self-consumption-section {
+    background-image: url('images/self-consumption-background.jpg');
+}
+
+.materials-section {
+    background-image: url('images/materials-background.jpg');
+}
+
+/* AgriVoltaics セクション */
+.agrivoltaics-section .more-btn {
+    background: #7ED321;
+    box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3);
+}
+
+.agrivoltaics-section .more-btn:hover {
+    background: #6BB91D;
+    box-shadow: 0 8px 25px rgba(126, 211, 33, 0.4);
+}
+
+/* Self Consumption セクション */
+.self-consumption-section .more-btn {
+    background: #F5A623;
+    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3);
+}
+
+.self-consumption-section .more-btn:hover {
+    background: #E6941A;
+    box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+}
+
+/* Materials セクション */
+.materials-section .more-btn {
+    background: #007BFF;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.materials-section .more-btn:hover {
+    background: #0056B3;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
 }
 
 .business-section h2 {
@@ -782,6 +835,10 @@ body {
     .news-section h2,
     .contact-section h2 {
         font-size: 2.5rem;
+    }
+    
+    .business-section {
+        background-attachment: scroll; /* モバイルでは固定背景を無効 */
     }
     
     .business-cards {
