@@ -451,18 +451,6 @@ body {
     text-align: center;
 }
 
-.energy-section h2 {
-    color: #F5A623;
-}
-
-.education-section h2 {
-    color: #9013FE;
-}
-
-.agriculture-section h2 {
-    color: #7ED321;
-}
-
 .business-section h3 {
     font-size: 1.8rem;
     font-weight: 500;
@@ -604,15 +592,15 @@ body {
     text-align: center;
 }
 
-.news-category.energy {
+.news-category.agrivoltaics {
     background: #F5A623;
 }
 
-.news-category.education {
+.news-category.self-consumption {
     background: #7ED321;
 }
 
-.news-category.agriculture {
+.news-category.materials {
     background: #E91E63;
 }
 
