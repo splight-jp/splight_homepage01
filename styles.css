@@ -1,4 +1,7 @@
 /* Reset and Base Styles */
+.site-header {
+    background: red; /* テスト用 */
+}
 * {
     margin: 0;
     padding: 0;
