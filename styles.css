@@ -82,18 +82,19 @@ body {
 
 .site-header .logo,
 .site-header .nav-menu a {
-    color: white !important;
+    color: white ;
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-/* スクロール時の文字色変更用のスタイル */
+/* 
 .site-header .nav-menu a,
 .site-header .logo {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
+*/
 /* スクロール時に適用されるクラス */
-.header-scrolled .nav-menu a,
-.header-scrolled .logo {
+.site-header.header-scrolled .nav-menu a,
+.site-header.header-scrolled .logo {
     color: #333 !important;
     text-shadow: none !important;
 }
@@ -140,14 +141,14 @@ body {
     height: 3px;
     background: white;
     margin: 3px 0;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .header-scrolled .mobile-menu-toggle span {
     background: #333 !important;
 }
 .site-header:hover .mobile-menu-toggle span {
-    background: #333;
+    background: #333 ;
 }
 
 .mobile-menu {
