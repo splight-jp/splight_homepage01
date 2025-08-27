@@ -336,9 +336,9 @@ body {
 }
 
 .partner-logo {
-    height: 80px;
+    height: 60px;
     width: auto;
-    margin: 0 40px;
+    margin: 0 30px;
     opacity: 0.7;
     transition: opacity 0.3s ease;
     filter: grayscale(100%);
