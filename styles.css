@@ -404,7 +404,7 @@ body {
 }
 
 .self-consumption-section {
-    background-image: url('images/self-consumption-background.jpg');
+    background-image: url('images/selfconsumption-background.jpg');
 }
 
 .materials-section {
@@ -412,7 +412,7 @@ body {
 }
 
 /* AgriVoltaics セクション */
-.agrivoltaics-section .more-btn {
+.ag;ivoltaics-section .more-btn {
     background: #7ED321;
     box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3);
 }
