@@ -192,7 +192,14 @@ body {
 .mobile-nav-menu li a:hover::after {
     width: 100%;
 }
+.header-scrolled .mobile-menu-toggle span {
+    background: #333 !important;
+    }
 
+.mobile-menu-toggle span {
+    background: white;
+    transition: background-color 0.3s ease;
+    }    
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -733,9 +740,33 @@ body {
     }
     
     .mobile-menu-toggle {
-        display: flex;
+       display: flex !important;
     }
     
+     .mobile-menu {
+        background: rgba(255, 255, 255, 0.98) !important; /* より不透明に */
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* 影を追加 */
+    }
+    
+    .mobile-menu.active {
+        display: block !important;
+    }
+    
+    .mobile-nav-menu li a {
+        color: #333 !important;
+        padding: 15px 0;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        display: block;
+        border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-menu li a:hover {
+        color: #F5A623 !important;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
