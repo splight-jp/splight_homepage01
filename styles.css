@@ -150,6 +150,12 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* モバイルメニューが開いている（is-openクラスがある）時、
+   スクロール状態に関わらずアイコンを黒にする */
+.site-header .mobile-menu-toggle.is-open span {
+    background: #333 !important;
+}
+
 .header-scrolled .mobile-menu-toggle span {
     background: #333 !important;
 }
