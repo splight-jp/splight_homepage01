@@ -90,12 +90,6 @@ body {
     text-shadow: none !important;
 }
 
-.site-header:hover:not(.header-scrolled) .logo,
-.site-header:hover:not(.header-scrolled) .nav-menu a {
-    color: #333 !important;
-    text-shadow: none;
-}
-
 /* ページトップでは白文字 */
 .site-header:not(.header-scrolled) .logo,
 .site-header:not(.header-scrolled) .nav-menu a {
