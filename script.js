@@ -46,27 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoImg = document.getElementById('logo-image');
 
     if (header && logoImg) {
-        const colorLogoSrc = '/splight_homepage01/images/logo.png';
-        const whiteLogoSrc = '/splight_homepage01/images/logo-white.png';
-        let isHovering = false;
+    const colorLogoSrc = '/splight_homepage01/images/logo.png';
+    const whiteLogoSrc = '/splight_homepage01/images/logo-white.png';
 
-        function updateLogo() {
-            const isScrolled = header.classList.contains('header-scrolled');
-            if (isScrolled || isHovering) {
-                if (logoImg.src !== colorLogoSrc) logoImg.src = colorLogoSrc;
-            } else {
-                if (logoImg.src !== whiteLogoSrc) logoImg.src = whiteLogoSrc;
-            }
+    function updateLogo() {
+        // スクロール状態だけをチェックする
+        const isScrolled = header.classList.contains('header-scrolled');
+        if (isScrolled) {
+            // スクロール時 → カラーロゴ
+            if (logoImg.src !== colorLogoSrc) logoImg.src = colorLogoSrc;
+        } else {
+            // トップ（透明）時 → 白ロゴ
+            if (logoImg.src !== whiteLogoSrc) logoImg.src = whiteLogoSrc;
         }
-
-        header.addEventListener('mouseenter', () => { isHovering = true; updateLogo(); });
-        header.addEventListener('mouseleave', () => { isHovering = false; updateLogo(); });
-
-        const logoObserver = new MutationObserver(updateLogo);
-        logoObserver.observe(header, { attributes: true, attributeFilter: ['class'] });
-
-        updateLogo();
     }
+
+    // スクロールによるクラス変化のみを監視
+    const logoObserver = new MutationObserver(updateLogo);
+    logoObserver.observe(header, { attributes: true, attributeFilter: ['class'] });
+
+    // 初期表示
+    updateLogo();
+}
     
     // ---------------------------------------------------------------------
     // ③ スムーズスクロール機能
