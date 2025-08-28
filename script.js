@@ -10,23 +10,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.querySelector('.mobile-menu');
 
     if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active'); // メニューの表示/非表示
-            mobileMenuToggle.classList.toggle('is-open'); // この行を追加
+    mobileMenuToggle.addEventListener('click', function() {
+        // メニュー本体に「active」クラスを付け外し
+        mobileMenu.classList.toggle('active');
+        
+        // ★★★ アイコン自体に「is-open」クラスを付け外し ★★★
+        // この一行が重要です
+        mobileMenuToggle.classList.toggle('is-open'); 
 
-            // ハンバーガーメニューアイコンのアニメーション
-            const spans = mobileMenuToggle.querySelectorAll('span');
-            if (mobileMenu.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
+        // ハンバーガーメニューアイコンのアニメーション（X印に変形）
+        const spans = mobileMenuToggle.querySelectorAll('span');
+        if (mobileMenu.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+}
 
     // モバイルメニューのリンククリック時にメニューを閉じる
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
