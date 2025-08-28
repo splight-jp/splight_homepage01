@@ -605,15 +605,15 @@ body {
 }
 
 .news-category.Agrivoltaics {
-    background: #F5A623;
-}
-
-.news-category.self-consumption {
     background: #7ED321;
 }
 
+.news-category.self-consumption {
+    background: #F5A623;
+}
+
 .news-category.materials {
-    background: #E91E63;
+    background: #007BFF;
 }
 
 .news-category.general {
