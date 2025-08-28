@@ -385,6 +385,12 @@ body {
         transform: translateX(-50%);
     }
 }
+/* Agrivoltaics ページ */
+.chart-wrapper {
+    position: relative;
+    height: 350px; /* グラフの高さを指定 */
+    width: 100%;
+}
 
 /* Business Sections */
 .business-section {
