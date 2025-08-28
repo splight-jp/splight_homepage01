@@ -1,1 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrivoltaics - 営農型太陽光発電 | 株式会社splight</title>
+    <meta name="description" content="営農型太陽光発電のコンサルティング、設計代行、意見書作成、発電所建設、資材販売まで一貫サポート。200件以上の実績とAI技術で最適なソリューションを提供。">
+    <meta name="keywords" content="splight,営農型太陽光発電,ソーラーシェアリング,農業,エネルギー,コンサルティング,設計代行">
+    <link rel="canonical" href="https://splight-jp.github.io/splight_homepage01/Agrivoltaics.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Agrivoltaics - 営農型太陽光発電 | 株式会社splight">
+    <meta property="og:description" content="営農型太陽光発電のコンサルティング、設計代行、意見書作成、発電所建設、資材販売まで一貫サポート。200件以上の実績とAI技術で最適なソリューションを提供。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://splight-jp.github.io/splight_homepage01/Agrivoltaics.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for statistics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    
+    <style>
+        /* Agrivoltaics専用のスタイル */
+        .agrivoltaics-hero {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 25%, #CDDC39 50%, #FFEB3B 75%, #FFC107 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .agrivoltaics-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/Agrivoltaics-background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .agrivoltaics-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .switch-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .switch-btn {
+            padding: 12px 30px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .switch-btn.active {
+            background: white;
+            color: #4CAF50;
+        }
+        
+        .switch-btn:hover {
+            background: white;
+            color: #4CAF50;
+            transform: translateY(-2px);
+        }
+        
+        .stats-section-agri {
+            background: linear-gradient(135deg, #4CAF50 0%, #FFEB3B 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stats-grid-agri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item-agri h3 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stat-item-agri p {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #4CAF50, #FFEB3B);
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #4CAF50;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-features li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .material-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .material-header {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .material-header.type1 {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+        }
+        
+        .material-header.type2 {
+            background: linear-gradient(135deg, #2196F3, #42A5F5);
+        }
+        
+        .material-header.type3 {
+            background: linear-gradient(135deg, #FF9800, #FFB74D);
+        }
+        
+        .material-header.type4 {
+            background: linear-gradient(135deg, #9C27B0, #BA68C8);
+        }
+        
+        .material-content {
+            padding: 30px;
+        }
+        
+        .material-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .material-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .strength-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .strength-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #4CAF50, #FFEB3B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .strength-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .strength-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #4CAF50 0%, #FFEB3B 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 15px 40px;
+            background: white;
+            color: #4CAF50;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #4CAF50;
+        }
+        
+        .contact-form-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #388E3C, #689F38);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+        
+        .process-step h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .process-step p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .agrivoltaics-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .switch-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .service-grid,
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-grid-agri {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .strengths-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .agrivoltaics-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid-agri {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-item-agri h3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="株式会社splight" />
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html#company">COMPANY<br><span>会社概要</span></a></li>
+                    <li><a href="Agrivoltaics.html">Agrivoltaics<br><span>営農型太陽光発電</span></a></li>
+                    <li><a href="index.html#self-consumption">Self Consumption<br><span>自家消費太陽光発電</span></a></li>
+                    <li><a href="index.html#materials">Materials<br><span>資材販売</span></a></li>
+                    <li><a href="index.html#news">NEWS<br><span>お知らせ</span></a></li>
+                    <li><a href="#contact">CONTACT<br><span>お問い合わせ</span></a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html#company">COMPANY<br><span>会社概要</span></a></li>
+                <li><a href="Agrivoltaics.html">Agrivoltaics<br><span>営農型太陽光発電</span></a></li>
+                <li><a href="index.html#self-consumption">Self Consumption<br><span>自家消費太陽光発電</span></a></li>
+                <li><a href="index.html#materials">Materials<br><span>資材販売</span></a></li>
+                <li><a href="index.html#news">NEWS<br><span>お知らせ</span></a></li>
+                <li><a href="#contact">CONTACT<br><span>お問い合わせ</span></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="agrivoltaics-hero">
+        <div class="container">
+            <div class="switch-buttons">
+                <button class="switch-btn active" id="investor-btn">発電事業者向け</button>
+                <button class="switch-btn" id="epc-btn">EPC事業者向け</button>
+            </div>
+            <h1 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 20px;">農業×エネルギーで<br>持続可能な未来を実現</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 40px;">営農型太陽光発電のコンサルティングから設計、建設まで一貫サポート</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-btn">無料相談を予約する</a>
+                <a href="#services" class="cta-btn secondary">サービス詳細</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section-agri">
+        <div class="container">
+            <div class="stats-grid-agri">
+                <div class="stat-item-agri">
+                    <h3>200+</h3>
+                    <p>設置実績</p>
+                </div>
+                <div class="stat-item-agri">
+                    <h3>4</h3>
+                    <p>資材バリエーション</p>
+                </div>
+                <div class="stat-item-agri">
+                    <h3>47</h3>
+                    <p>都道府県対応</p>
+                </div>
+                <div class="stat-item-agri">
+                    <h3>100%</h3>
+                    <p>AI活用設計</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Agrivoltaics Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">営農型太陽光発電とは</h2>
+            <p class="section-subtitle">農地の上部空間を活用し、農業生産と発電事業を同時に行う革新的なシステムです</p>
+            
+            <div class="business-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 20px; color: #333;">ソーラーシェアリングの仕組み</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 30px;">
+                        営農型太陽光発電（ソーラーシェアリング）は、農地法に基づく一時転用許可を受け、農地に簡易な構造でかつ容易に撤去できる支柱を立てて、上部空間に太陽光発電設備を設置し、営農を継続しながら発電を行う取組です。
+                    </p>
+                    
+                    <div class="benefits-list" style="space-y: 20px;">
+                        <div class="benefit-item" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                            <div style="width: 24px; height: 24px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; margin-top: 2px; flex-shrink: 0;">
+                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">農業収入の安定化</h4>
+                                <p style="color: #666; font-size: 0.95rem;">作物の販売収入に加え、発電電力の売電収入を得られます</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                            <div style="width: 24px; height: 24px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; margin-top: 2px; flex-shrink: 0;">
+                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">環境保全への貢献</h4>
+                                <p style="color: #666; font-size: 0.95rem;">再生可能エネルギーの普及と農業の持続可能性を両立</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item" style="display: flex; align-items: flex-start;">
+                            <div style="width: 24px; height: 24px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; margin-top: 2px; flex-shrink: 0;">
+                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">リスク分散効果</h4>
+                                <p style="color: #666; font-size: 0.95rem;">天候不順や市場変動などのリスクを分散できます</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/Agrivoltaics-background.jpg" alt="営農型太陽光発電の仕組み" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="content-section">
+        <div class="container">
+            <h2 class="section-title">サービス一覧</h2>
+            <p class="section-subtitle">コンサルティングから建設まで、一貫したサポートを提供</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>コンサルティング</h3>
+                    <p>AI活用による遮光率計算、収益シミュレーション、最適な作物選定など、科学的根拠に基づくアドバイス</p>
+                    <ul class="service-features">
+                        <li>遮光率最適化</li>
+                        <li>収益シミュレーション</li>
+                        <li>作物選定支援</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>設計代行</h3>
+                    <p>営農型太陽光発電設備の専門的な設計業務を代行。作物と発電の両立を考慮した最適設計</p>
+                    <ul class="service-features">
+                        <li>構造設計</li>
+                        <li>電気設計</li>
+                        <li>配置最適化</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>意見書作成</h3>
+                    <p>農地法に基づく一時転用許可申請に必要な専門的意見書の作成サポート</p>
+                    <ul class="service-features">
+                        <li>申請書類作成</li>
+                        <li>行政対応</li>
+                        <li>技術計算</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>発電所建設</h3>
+                    <p>営農型太陽光発電所の建設工事。低圧から高圧まで幅広い規模に対応</p>
+                    <ul class="service-features">
+                        <li>施工管理</li>
+                        <li>品質保証</li>
+                        <li>アフターサポート</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>資材販売</h3>
+                    <p>藤棚型、ビニールハウス型、追尾型、垂直型の4種類の営農型資材を提供</p>
+                    <ul class="service-features">
+                        <li>国内最大バリエーション</li>
+                        <li>高品質資材</li>
+                        <li>カスタマイズ対応</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>マッチング</h3>
+                    <p>発電事業者と営農者のマッチングサービス。最適なパートナーシップを実現</p>
+                    <ul class="service-features">
+                        <li>事業者紹介</li>
+                        <li>契約サポート</li>
+                        <li>継続フォロー</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">当社の強み</h2>
+            <p class="section-subtitle">200件以上の実績と最新技術で最適なソリューションを提供</p>
+            
+            <div class="business-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div class="strengths-grid">
+                    <div class="strength-item">
+                        <div class="strength-icon">📈</div>
+                        <div class="strength-content">
+                            <h3>豊富な設置実績</h3>
+                            <p>全国200件以上の設置実績。低圧から高圧まで幅広い規模に対応し、様々な地域特性に合わせたソリューションを提供しています。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-icon">🌱</div>
+                        <div class="strength-content">
+                            <h3>自社農業経験</h3>
+                            <p>自社で農業を実践しているからこそ理解できる課題と解決策。豊富な実績と経験でお客様の課題解決に取り組みます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-icon">🤖</div>
+                        <div class="strength-content">
+                            <h3>AI技術の活用</h3>
+                            <p>作物に合わせた遮光率の自動計算など、最新のAI技術を活用した科学的アプローチで最適な設計を実現します。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3 style="text-align: center; margin-bottom: 30px; color: #333;">資材タイプ別設置実績</h3>
+                    <canvas id="installationChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">4種類の営農型資材</h2>
+            <p class="section-subtitle">国内最大のバリエーションで様々なニーズに対応</p>
+            
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-header type1">🌱</div>
+                    <div class="material-content">
+                        <h3>藤棚型</h3>
+                        <p>従来の農業構造を活かした設計で、既存の農業手法との親和性が高い標準的なタイプ。</p>
+                        <ul class="service-features">
+                            <li>多様な作物に対応</li>
+                            <li>設置コストが比較的低い</li>
+                            <li>農作業の妨げになりにくい</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-header type2">🏠</div>
+                    <div class="material-content">
+                        <h3>ビニールハウス型</h3>
+                        <p>施設園芸との組み合わせにより、年間を通じた安定した農業生産を実現。</p>
+                        <ul class="service-features">
+                            <li>気候条件に左右されにくい</li>
+                            <li>高付加価値作物の栽培に適合</li>
+                            <li>温度管理と発電の両立</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-header type3">🔄</div>
+                    <div class="material-content">
+                        <h3>追尾型</h3>
+                        <p>太陽の動きに合わせてパネルが回転し、発電効率を最大化する先進的なシステム。</p>
+                        <ul class="service-features">
+                            <li>発電量の最適化</li>
+                            <li>作物への日照調整が可能</li>
+                            <li>季節に応じた角度調整</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-header type4">⬆️</div>
+                    <div class="material-content">
+                        <h3>垂直型</h3>
+                        <p>限られた土地を最大限に活用し、独特な農業スタイルに対応する革新的な設計。</p>
+                        <ul class="service-features">
+                            <li>土地利用効率の向上</li>
+                            <li>特殊な地形にも対応</li>
+                            <li>風の影響を受けにくい</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>営農型太陽光発電を始めませんか？</h2>
+            <p>専門コンサルタントによる無料相談で、あなたの農地に最適なソリューションをご提案します</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-btn">無料相談を予約する</a>
+                <a href="tel:0848-51-6602" class="cta-btn secondary">お電話でのお問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-form-section">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle">お気軽にご相談ください。専門スタッフが丁寧にサポートいたします</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 30px; color: #333;">連絡先情報</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">お電話</h4>
+                            <p style="color: #666;">0848-51-6602（平日 9:00-18:00）</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">メール</h4>
+                            <p style="color: #666;">info@splight.co.jp</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <h4 style="font-weight: 600; color: #333; margin-bottom: 5px;">所在地</h4>
+                            <p style="color: #666;">〒722-0034 広島県尾道市十四日元町3-21 Sビル3F</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h4 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; color: #333;">相談の流れ</h4>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>お問い合わせ</h4>
+                                <p>フォームまたはお電話でご連絡</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>無料相談</h4>
+                                <p>専門コンサルタントによる初回相談</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>提案書作成</h4>
+                                <p>ご要望に合わせた提案書の作成</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>プロジェクト開始</h4>
+                                <p>契約締結後、具体的な作業開始</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 30px; color: #333;">お問い合わせフォーム</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">お名前 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">メールアドレス *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">会社名・団体名</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 *</label>
+                            <textarea id="message" name="message" required placeholder="ご相談内容、農地の規模、ご希望などをお聞かせください"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                     <div class="footer-logo">
+                        <img src="images/logo2.png" alt="Splight">
+                        </div>
+                    <div class="footer-contact">
+                        <p>株式会社splight</p>
+                        <p>〒722-0034 広島県尾道市十四日元町3-21 Sビル3F</p>
+                        <p>TEL: 0848-51-6602</p>
+                        <p>Email: info@splight.co.jp</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="index.html#company">会社概要</a></li>
+                        <li><a href="#contact">アクセス</a></li>
+                        <li><a href="#contact">採用情報</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="Agrivoltaics.html">営農型太陽光発電</a></li>
+                        <li><a href="index.html#self-consumption">自家消費太陽光発電</a></li>
+                        <li><a href="index.html#materials">資材販売</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>INFORMATION</h4>
+                    <ul>
+                        <li><a href="index.html#news">お知らせ</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                        <li><a href="#contact">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 株式会社splight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Switch buttons functionality
+        const investorBtn = document.getElementById('investor-btn');
+        const epcBtn = document.getElementById('epc-btn');
+
+        investorBtn.addEventListener('click', () => {
+            investorBtn.classList.add('active');
+            epcBtn.classList.remove('active');
+        });
+
+        epcBtn.addEventListener('click', () => {
+            epcBtn.classList.add('active');
+            investorBtn.classList.remove('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Chart.js for installation statistics
+        const ctx = document.getElementById('installationChart').getContext('2d');
+        const installationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['藤棚型', 'ビニールハウス型', '追尾型', '垂直型'],
+                datasets: [{
+                    label: '設置実績（件数）',
+                    data: [80, 60, 40, 20],
+                    backgroundColor: [
+                        'rgba(76, 175, 80, 0.8)',
+                        'rgba(33, 150, 243, 0.8)',
+                        'rgba(255, 152, 0, 0.8)',
+                        'rgba(156, 39, 176, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(76, 175, 80, 1)',
+                        'rgba(33, 150, 243, 1)',
+                        'rgba(255, 152, 0, 1)',
+                        'rgba(156, 39, 176, 1)'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('お問い合わせありがとうございます。担当者より折り返しご連絡いたします。');
+        });
+    </script>
+</body>
+</html>
+
 
