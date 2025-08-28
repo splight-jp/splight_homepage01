@@ -47,9 +47,16 @@ body {
     align-items: center;
 }
 
+.logo a {
+    position: relative;
+    display: inline-block; /* 画像のサイズに合わせる */
+}
+
 .logo img {
-    height: 60px;
-    width: auto;
+    position: absolute; /* 親要素(.logo a)を基準に絶対配置 */
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease; /* ふわっと切り替えるアニメーション */
 }
 
 .main-nav {
@@ -79,6 +86,26 @@ body {
     display: block;
     padding: 10px 0;
     transition: all 0.3s ease;
+}
+/* カラーロゴを非表示に */
+.site-header .logo-color {
+    opacity: 0;
+}
+
+/* 白ロゴを表示状態に */
+.site-header .logo-white {
+    opacity: 1;
+}
+
+/* .header-scrolledクラスがついた時、またはヘッダーにマウスホバーした時 */
+.site-header.header-scrolled .logo-color,
+.site-header:hover .logo-color {
+    opacity: 1; /* カラーロゴを表示 */
+}
+
+.site-header.header-scrolled .logo-white,
+.site-header:hover .logo-white {
+    opacity: 0; /* 白ロゴを非表示 */
 }
 
 .site-header .logo,
