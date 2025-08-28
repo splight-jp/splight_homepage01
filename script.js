@@ -33,6 +33,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ロゴ切り替え機能
+document.addEventListener('DOMContentLoaded', function() {
+    // ロゴとヘッダーの要素をページから探す
+    const header = document.querySelector('.site-header');
+    const logoImg = document.getElementById('logo-image');
+
+    // ロゴ画像が存在しないページでは何もしない
+    if (!logoImg) {
+        return;
+    }
+
+    // 2種類のロゴ画像のパスを定義する
+    const colorLogoSrc = '/splight_homepage01/images/logo.png'; // カラーロゴ
+    const whiteLogoSrc = '/splight_homepage01/images/logo-white.png'; // 白ロゴ
+
+    let isHovering = false;
+
+    // 現在の状態でどちらのロゴを表示すべきか判断し、更新する関数
+    function updateLogo() {
+        const isScrolled = header.classList.contains('header-scrolled');
+        
+        // 条件：スクロールされているか、マウスがヘッダーの上にあるか
+        if (isScrolled || isHovering) {
+            // 条件に合致すればカラーロゴに切り替え
+            if (logoImg.src !== colorLogoSrc) {
+                logoImg.src = colorLogoSrc;
+            }
+        } else {
+            // 条件に合致しなければ白ロゴに切り替え
+            if (logoImg.src !== whiteLogoSrc) {
+                logoImg.src = whiteLogoSrc;
+            }
+        }
+    }
+
+    // マウスがヘッダーに乗った時の処理
+    header.addEventListener('mouseenter', () => {
+        isHovering = true;
+        updateLogo();
+    });
+
+    // マウスがヘッダーから離れた時の処理
+    header.addEventListener('mouseleave', () => {
+        isHovering = false;
+        updateLogo();
+    });
+
+    // スクロールによるクラス（.header-scrolled）の変化を監視
+    const observer = new MutationObserver(updateLogo);
+    observer.observe(header, { attributes: true, attributeFilter: ['class'] });
+
+    // ページ読み込み時に一度、初期状態のロゴを正しく設定
+    updateLogo();
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
