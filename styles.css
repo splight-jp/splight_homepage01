@@ -75,10 +75,7 @@ body {
     padding: 10px 0;
     transition: all 0.3s ease;
 }
-.logo img {
-    height: 40px;
-    width: auto;
-}
+
 
 .site-header .logo,
 .site-header .nav-menu a {
@@ -755,6 +752,11 @@ body {
 
 .footer-logo img {
     height: 80px;
+    width: auto;
+}
+
+.logo img {
+    height: 60px;
     width: auto;
 }
 
