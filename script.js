@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileMenuToggle && mobileMenu) {
         mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active'); // メニューの表示/非表示
+            mobileMenuToggle.classList.toggle('is-open'); // この行を追加
 
             // ハンバーガーメニューアイコンのアニメーション
             const spans = mobileMenuToggle.querySelectorAll('span');
