@@ -107,6 +107,10 @@ body {
     background: #333 !important;
 }
 
+.mobile-menu-toggle.is-open span {
+    background: #333 !important;
+}
+
 .nav-menu li a span {
     font-size: 12px;
     font-weight: 300;
