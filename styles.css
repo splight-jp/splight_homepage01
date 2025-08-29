@@ -729,12 +729,214 @@ body {
 /* =========================================================================
    Agrivoltaics Page Specific Styles
    ========================================================================= */
+/* =========================================================================
+   Agrivoltaics Page Specific Styles
+   ========================================================================= */
+
+/* --- Hero Section for Agrivoltaics Page --- */
+.agrivoltaics-hero {
+    background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 25%, #CDDC39 50%, #FFEB3B 75%, #FFC107 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.agrivoltaics-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* パスを修正 */
+    background: url('/splight_homepage01/images/Agrivoltaics-background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.agrivoltaics-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.switch-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.switch-btn {
+    padding: 12px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.switch-btn:hover,
+.switch-btn.active {
+    background: white;
+    color: #4CAF50;
+    transform: translateY(-2px);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.cta-buttons .cta-btn {
+    background: white;
+    color: #4CAF50;
+}
+.cta-buttons .cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+.cta-buttons .cta-btn.secondary:hover {
+    background: white;
+    color: #4CAF50;
+}
+
+/* --- Statistics Section for Agrivoltaics Page --- */
+.stats-section-agri {
+    background: linear-gradient(135deg, #4CAF50 0%, #FFEB3B 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.stats-grid-agri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-item-agri h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.stat-item-agri p {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* --- Content Sections for Agrivoltaics Page --- */
+.content-section {
+    padding: 80px 0;
+}
+
+.content-section:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #4CAF50, #FFEB3B);
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #4CAF50;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.service-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.service-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+.service-features li {
+    padding: 5px 0 5px 25px;
+    color: #555;
+    position: relative;
+}
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* --- Chart Container for Agrivoltaics Page --- */
+.chart-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    align-self: center;
+}
+
 .chart-wrapper {
     position: relative;
     height: 350px;
     width: 100%;
 }
-/* ... other agrivoltaics styles ... */
 
 /* =========================================================================
    Responsive Design
