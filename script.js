@@ -3,7 +3,7 @@
 // =========================================================================
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ---------------------------------------------------------------------
+   // ---------------------------------------------------------------------
     // ① モバイルメニューの機能
     // ---------------------------------------------------------------------
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
-    if (mobileMenu && mobileMenuToggle) { // mobileMenuToggleもチェック対象に追加
+    if (mobileMenu && mobileMenuToggle) {
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.remove('active');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------------------------------------------------------------------
-    // ② ロゴの切り替え機能
+    // ② ロゴの切り替え機能 (スクロールとホバー対応)
     // ---------------------------------------------------------------------
     const header = document.querySelector('.site-header');
     const logoImg = document.getElementById('logo-image');
@@ -50,15 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (header && logoImg) {
         const colorLogoSrc = '/splight_homepage01/images/logo.png';
         const whiteLogoSrc = '/splight_homepage01/images/logo-white.png';
+        let isHovering = false;
 
         function updateLogo() {
             const isScrolled = header.classList.contains('header-scrolled');
-            if (isScrolled) {
-                if (logoImg.src !== colorLogoSrc) logoImg.src = colorLogoSrc;
+            // スクロールされているか、マウスが乗っている場合はカラーロゴ
+            if (isScrolled || isHovering) {
+                if (logoImg.src.includes('logo-white')) logoImg.src = colorLogoSrc;
             } else {
-                if (logoImg.src !== whiteLogoSrc) logoImg.src = whiteLogoSrc;
+                // それ以外は白ロゴ
+                if (logoImg.src.includes('logo.png')) logoImg.src = whiteLogoSrc;
             }
         }
+
+        // マウスホバーの処理を再追加
+        header.addEventListener('mouseenter', () => { isHovering = true; updateLogo(); });
+        header.addEventListener('mouseleave', () => { isHovering = false; updateLogo(); });
+        
         const logoObserver = new MutationObserver(updateLogo);
         logoObserver.observe(header, { attributes: true, attributeFilter: ['class'] });
         updateLogo();
@@ -194,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
     if (header) {
+        // JSではクラスを付け外しするだけに変更
         if (window.scrollY > 100) {
             header.classList.add('header-scrolled');
         } else {
