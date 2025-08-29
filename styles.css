@@ -202,7 +202,7 @@ body {
 
 
 /* =========================================================================
-   Page Sections
+   Page Sections (index.html)
    ========================================================================= */
 
 /* --- Hero Section --- */
@@ -272,130 +272,6 @@ body {
     padding: 100px 0;
 }
 
-/* --- Company Section --- */
-.company-section {
-    background: #f8f9fa;
-}
-
-.company-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.company-text h2 {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.company-text h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-.company-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: #555;
-}
-
-.company-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* --- Partners Section --- */
-.partners-section {
-    padding: 60px 0;
-    background: white;
-    overflow: hidden;
-}
-
-.partners-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 50px;
-    color: #333;
-}
-
-.partners-slider {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.partners-track {
-    display: inline-flex;
-    animation: slide 30s linear infinite;
-}
-
-.partners-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-.partner-logo {
-    height: 40px;
-    margin: 0 40px;
-    opacity: 0.7;
-    filter: grayscale(100%);
-    transition: opacity 0.3s ease, filter 0.3s ease;
-}
-
-.partner-logo:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-}
-
-/* --- Business Sections --- */
-.business-section {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.business-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
-    z-index: 1;
-}
-
-.business-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.Agrivoltaics-section {
-    background-image: url('/splight_homepage01/images/Agrivoltaics-background.jpg');
-}
-
-.self-consumption-section {
-    background-image: url('/splight_homepage01/images/selfconsumption-background.jpg');
-}
-
-.materials-section {
-    background-image: url('/splight_homepage01/images/materials-background.jpg');
-}
-
 .business-section h2 {
     font-size: 4rem;
     font-weight: 700;
@@ -442,189 +318,6 @@ body {
     line-height: 1.7;
     color: #666;
 }
-
-.text-center {
-    text-align: center;
-}
-
-.more-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.more-btn:hover {
-    transform: translateY(-2px);
-}
-
-.Agrivoltaics-section .more-btn { background: #7ED321; box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3); }
-.Agrivoltaics-section .more-btn:hover { background: #6BB91D; box-shadow: 0 8px 25px rgba(126, 211, 33, 0.4); }
-.self-consumption-section .more-btn { background: #F5A623; box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3); }
-.self-consumption-section .more-btn:hover { background: #E6941A; box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4); }
-.materials-section .more-btn { background: #007BFF; box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); }
-.materials-section .more-btn:hover { background: #0056B3; box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); }
-
-/* --- Statistics Section --- */
-.stats-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 50px;
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.stat-item p {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-
-/* --- News Section --- */
-.news-section {
-    background: white;
-}
-
-.news-section h2, .news-section h3 {
-    text-align: center;
-    color: #333;
-}
-.news-section h2 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
-.news-section h3 { font-size: 1.8rem; font-weight: 500; color: #666; margin-bottom: 3rem; }
-
-.news-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.news-item {
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    gap: 20px;
-}
-
-.news-date {
-    font-size: 0.9rem;
-    color: #999;
-    min-width: 100px;
-}
-
-.news-category {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: white;
-    min-width: 80px;
-    text-align: center;
-}
-
-.news-category.Agrivoltaics { background: #7ED321; }
-.news-category.self-consumption { background: #F5A623; }
-.news-category.materials { background: #007BFF; }
-.news-category.general { background: #666; }
-
-.news-title a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.news-title a:hover {
-    color: #007BFF;
-}
-
-.news-more {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.news-more a {
-    color: #F5A623;
-    text-decoration: none;
-    font-weight: 500;
-    transition: border-color 0.3s ease;
-}
-
-.news-more a:hover {
-    border-bottom: 1px solid #F5A623;
-}
-
-/* --- Contact Section --- */
-.contact-section {
-    position: relative;
-    background: url('/splight_homepage01/images/contact-background.jpg') center/cover no-repeat fixed;
-    text-align: center;
-    color: white;
-}
-
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-    z-index: 1;
-}
-
-.contact-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.contact-section h2, .contact-section h3 {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-.contact-section h2 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
-.contact-section h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 2rem; }
-.contact-section p {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.contact-btn {
-    display: inline-block;
-    padding: 20px 50px;
-    background: #F5A623;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(245, 166, 35, 0.3);
-}
-
-.contact-btn:hover {
-    background: #E6941A;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
-}
-
 
 /* =========================================================================
    New Footer Styles
@@ -735,7 +428,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* パスを修正 */
     background: url('/splight_homepage01/images/Agrivoltaics-background.jpg');
     background-size: cover;
     background-position: center;
@@ -782,8 +474,20 @@ body {
     flex-wrap: wrap;
 }
 .cta-buttons .cta-btn {
+    padding: 15px 40px;
     background: white;
     color: #4CAF50;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+.cta-buttons .cta-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 .cta-buttons .cta-btn.secondary {
     background: transparent;
@@ -878,6 +582,18 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 24px;
+}
 .service-card h3 {
     font-size: 1.4rem;
     font-weight: 600;
@@ -905,6 +621,64 @@ body {
     color: #4CAF50;
     font-weight: bold;
 }
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.material-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.material-header {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+.material-header.type1 { background: linear-gradient(135deg, #4CAF50, #66BB6A); }
+.material-header.type2 { background: linear-gradient(135deg, #2196F3, #42A5F5); }
+.material-header.type3 { background: linear-gradient(135deg, #FF9800, #FFB74D); }
+.material-header.type4 { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+.material-content { padding: 30px; }
+.material-content h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; }
+.material-content p { color: #666; line-height: 1.6; margin-bottom: 20px; }
+
+.strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+}
+.strength-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.strength-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, #4CAF50, #FFEB3B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+.strength-content h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
+.strength-content p { color: #666; line-height: 1.7; }
+
 
 /* --- Chart Container for Agrivoltaics Page --- */
 .chart-container {
@@ -923,54 +697,55 @@ body {
     width: 100%;
 }
 
+.cta-section {
+    background: linear-gradient(135deg, #4CAF50 0%, #FFEB3B 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+.cta-section h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+.cta-section p { font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+.contact-form-section { padding: 80px 0; background: #f8f9fa; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-info, .contact-form { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.form-group { margin-bottom: 25px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: border-color 0.3s ease; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #4CAF50; }
+.form-group textarea { height: 120px; resize: vertical; }
+.submit-btn { width: 100%; padding: 15px; background: linear-gradient(45deg, #4CAF50, #8BC34A); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+.submit-btn:hover { background: linear-gradient(45deg, #388E3C, #689F38); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3); }
+
+.contact-item { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
+.contact-icon { width: 50px; height: 50px; background: linear-gradient(45deg, #4CAF50, #8BC34A); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+
+.process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
+.process-step { text-align: center; }
+.step-number { width: 60px; height: 60px; background: linear-gradient(45deg, #4CAF50, #8BC34A); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold; margin: 0 auto 15px; }
+.process-step h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+.process-step p { color: #666; font-size: 0.9rem; }
+
 /* =========================================================================
    Responsive Design
    ========================================================================= */
 @media (max-width: 768px) {
-    /* General Responsive Styles */
-    .company-text h2,
-    .business-section h2,
-    .news-section h2,
-    .contact-section h2 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1.2rem; }
-
-    /* Header & Mobile Nav */
     .main-nav { display: none; }
     .mobile-menu-toggle { display: flex !important; }
     
-    /* Sections */
-    .business-section, .contact-section, .hero {
-        background-attachment: scroll;
-    }
-    .company-content { grid-template-columns: 1fr; gap: 40px; }
-    .business-cards { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr; gap: 30px; }
-    .news-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-    
-    /* Footer */
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    .footer-info { grid-column: 1 / -1; margin-bottom: 20px; }
+    .agrivoltaics-hero { padding: 100px 0 60px; }
+    .section-title { font-size: 2.2rem; }
+    .switch-buttons { flex-direction: column; align-items: center; gap: 15px; }
+    .service-grid, .materials-grid, .strengths-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-grid-agri { grid-template-columns: repeat(2, 1fr); gap: 30px; }
 }
 
 @media (max-width: 480px) {
     .container { padding: 0 15px; }
-
-    .business-section,
-    .company-section,
-    .stats-section,
-    .news-section,
-    .contact-section {
-        padding: 60px 0;
-    }
-
-    .hero-content h1 { font-size: 2rem; }
-    .hero-content p { font-size: 1rem; }
-    .hero-content .description { font-size: 0.9rem; }
-    
-    /* Footer */
+    .agrivoltaics-hero { padding: 80px 0 40px; }
+    .section-title { font-size: 1.8rem; }
+    .stats-grid-agri { grid-template-columns: 1fr; }
+    .stat-item-agri h3 { font-size: 2.5rem; }
     .footer-grid { grid-template-columns: 1fr; }
 }
