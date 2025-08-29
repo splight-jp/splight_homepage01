@@ -10,39 +10,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.querySelector('.mobile-menu');
 
     if (mobileMenuToggle && mobileMenu) {
-    mobileMenuToggle.addEventListener('click', function() {
-        // メニュー本体に「active」クラスを付け外し
-        mobileMenu.classList.toggle('active');
-        
-        // ★★★ アイコン自体に「is-open」クラスを付け外し ★★★
-        // この一行が重要です
-        mobileMenuToggle.classList.toggle('is-open'); 
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('is-open');
 
-        // ハンバーガーメニューアイコンのアニメーション（X印に変形）
-        const spans = mobileMenuToggle.querySelectorAll('span');
-        if (mobileMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-}
-
-    // モバイルメニューのリンククリック時にメニューを閉じる
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
             const spans = mobileMenuToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
         });
-    });
+    }
+
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+    if (mobileMenu && mobileMenuToggle) { // mobileMenuToggleもチェック対象に追加
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('is-open'); // アイコンの状態もリセット
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+    }
 
     // ---------------------------------------------------------------------
     // ② ロゴの切り替え機能
@@ -51,58 +48,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoImg = document.getElementById('logo-image');
 
     if (header && logoImg) {
-    const colorLogoSrc = '/splight_homepage01/images/logo.png';
-    const whiteLogoSrc = '/splight_homepage01/images/logo-white.png';
+        const colorLogoSrc = '/splight_homepage01/images/logo.png';
+        const whiteLogoSrc = '/splight_homepage01/images/logo-white.png';
 
-    function updateLogo() {
-        // スクロール状態だけをチェックする
-        const isScrolled = header.classList.contains('header-scrolled');
-        if (isScrolled) {
-            // スクロール時 → カラーロゴ
-            if (logoImg.src !== colorLogoSrc) logoImg.src = colorLogoSrc;
-        } else {
-            // トップ（透明）時 → 白ロゴ
-            if (logoImg.src !== whiteLogoSrc) logoImg.src = whiteLogoSrc;
+        function updateLogo() {
+            const isScrolled = header.classList.contains('header-scrolled');
+            if (isScrolled) {
+                if (logoImg.src !== colorLogoSrc) logoImg.src = colorLogoSrc;
+            } else {
+                if (logoImg.src !== whiteLogoSrc) logoImg.src = whiteLogoSrc;
+            }
         }
+        const logoObserver = new MutationObserver(updateLogo);
+        logoObserver.observe(header, { attributes: true, attributeFilter: ['class'] });
+        updateLogo();
     }
-
-    // スクロールによるクラス変化のみを監視
-    const logoObserver = new MutationObserver(updateLogo);
-    logoObserver.observe(header, { attributes: true, attributeFilter: ['class'] });
-
-    // 初期表示
-    updateLogo();
-}
     
     // ---------------------------------------------------------------------
-    // ③ スムーズスクロール機能
+    // ③ スムーズスクロール機能（ページ内リンク用）
     // ---------------------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = document.querySelector('.site-header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const targetId = this.getAttribute('href');
+            // リンク先が '#' だけでないことを確認
+            if (targetId.length > 1) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerHeight = document.querySelector('.site-header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
     
     // ---------------------------------------------------------------------
-    // ④ 表示されたらアニメーションを開始する機能
+    // ④ 表示されたらアニメーションを開始する機能（index.html用）
     // ---------------------------------------------------------------------
     const animateElements = document.querySelectorAll('.business-card, .stat-item, .news-item');
     if (animateElements.length > 0) {
-        const animationObserver = new IntersectionObserver(function(entries) {
+        const animationObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                    animationObserver.unobserve(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -116,32 +110,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------------------------------------------------------------------
-    // ⑤ 数字のカウンターアニメーション機能
+    // ⑤ 数字のカウンターアニメーション機能（index.html用）
     // ---------------------------------------------------------------------
     const statsSection = document.querySelector('.stats-section');
     if (statsSection) {
-        const statsObserver = new IntersectionObserver(function(entries) {
+        const statsObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counters = entry.target.querySelectorAll('.stat-item h3');
                     counters.forEach(counter => {
                         const target = parseInt(counter.textContent);
-                        animateCounter(counter, target);
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
                     });
-                    statsObserver.unobserve(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
         statsObserver.observe(statsSection);
     }
-
+    
     // ---------------------------------------------------------------------
-    // ⑥ スクロールトップボタンの作成
-    // ---------------------------------------------------------------------
-    createScrollToTopButton();
-
-    // ---------------------------------------------------------------------
-    // ⑦ ビデオ関連の機能
+    // ⑥ ビデオ関連の機能（index.html用）
     // ---------------------------------------------------------------------
     const heroVideo = document.getElementById('hero-video');
     if (heroVideo) {
@@ -154,11 +145,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // ---------------------------------------------------------------------
+    // ⑦ Agrivoltaicsページ専用のグラフ描画機能
+    // ---------------------------------------------------------------------
+    const ctx = document.getElementById('installationChart');
+    if (ctx) {
+        new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['藤棚型', 'ビニールハウス型', '追尾型', '垂直型'],
+                datasets: [{
+                    label: '設置実績（件数）',
+                    data: [80, 60, 40, 20],
+                    backgroundColor: [
+                        'rgba(76, 175, 80, 0.8)', 'rgba(33, 150, 243, 0.8)',
+                        'rgba(255, 152, 0, 0.8)', 'rgba(156, 39, 176, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(76, 175, 80, 1)', 'rgba(33, 150, 243, 1)',
+                        'rgba(255, 152, 0, 1)', 'rgba(156, 39, 176, 1)'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0, 0, 0, 0.1)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    }
 
 }); // <<<< DOMContentLoadedはここで終了
 
 // =========================================================================
-// B. ヘルパー関数と、DOMContentLoaded外で実行する処理
+// B. ページ全体で常に有効な機能
 // =========================================================================
 
 // ---------------------------------------------------------------------
@@ -168,12 +195,8 @@ window.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
     if (header) {
         if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             header.classList.add('header-scrolled');
         } else {
-            header.style.background = 'rgba(255, 255, 255, 0.1)';
-            header.style.boxShadow = 'none';
             header.classList.remove('header-scrolled');
         }
     }
@@ -198,9 +221,10 @@ function animateCounter(element, target, duration = 2000) {
 }
 
 // ---------------------------------------------------------------------
-// ③ スクロールトップボタンを作成し、動作させる関数
+// ③ スクロールトップボタンの作成と表示制御
 // ---------------------------------------------------------------------
-function createScrollToTopButton() {
+// ボタンがまだ作られていない場合のみ作成する
+if (!document.querySelector('.scroll-to-top')) {
     const button = document.createElement('button');
     button.innerHTML = '↑';
     button.className = 'scroll-to-top';
@@ -209,31 +233,20 @@ function createScrollToTopButton() {
         width: 50px; height: 50px; border-radius: 50%;
         background-color: #F5A623; color: white; border: none;
         font-size: 20px; cursor: pointer; opacity: 0;
-        transition: opacity 0.3s ease; z-index: 1000;
+        transition: opacity 0.3s ease; z-index: 1000; visibility: hidden;
     `;
-    button.addEventListener('click', function() {
+    button.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    window.addEventListener('scroll', function() {
+    document.body.appendChild(button);
+
+    window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
             button.style.opacity = '1';
+            button.style.visibility = 'visible';
         } else {
             button.style.opacity = '0';
+            button.style.visibility = 'hidden';
         }
     });
-    document.body.appendChild(button);
 }
-
-// ---------------------------------------------------------------------
-// ④ ヒーローセクションのパララックス（視差効果）
-// ※この機能は削除されたようなのでコメントアウトします。もし必要であれば下の行の/*と*/を削除してください。
-/*
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-});
-*/
