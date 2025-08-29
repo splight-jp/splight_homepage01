@@ -218,9 +218,9 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
-    background: url('/splight_homepage01/images/header-background.jpg') center/cover no-repeat fixed;
+    background: url('/splight_homepage01/images/header-background.jpg')center/cover no-repeat fixed;
 }
 
 .hero-video {
@@ -251,7 +251,11 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     width: 100%;
+    text-align: center;
 }
 
 .hero-content h1 {
