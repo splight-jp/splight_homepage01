@@ -630,4 +630,127 @@ body {
     text-transform: uppercase;
 }
 
-.footer-info .footer-logo-img
+.footer-info .footer-logo-img {
+    height: 80px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.footer-info p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.footer-info .company-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #007BFF;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007BFF;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
+
+/* =========================================================================
+   Agrivoltaics Page Specific Styles
+   ========================================================================= */
+.chart-wrapper {
+    position: relative;
+    height: 350px;
+    width: 100%;
+}
+/* ... other agrivoltaics styles ... */
+
+/* =========================================================================
+   Responsive Design
+   ========================================================================= */
+@media (max-width: 768px) {
+    /* General Responsive Styles */
+    .company-text h2,
+    .business-section h2,
+    .news-section h2,
+    .contact-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1.2rem; }
+
+    /* Header & Mobile Nav */
+    .main-nav { display: none; }
+    .mobile-menu-toggle { display: flex !important; }
+    
+    /* Sections */
+    .business-section, .contact-section, .hero {
+        background-attachment: scroll;
+    }
+    .company-content { grid-template-columns: 1fr; gap: 40px; }
+    .business-cards { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+    .news-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .footer-info { grid-column: 1 / -1; margin-bottom: 20px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 15px; }
+
+    .business-section,
+    .company-section,
+    .stats-section,
+    .news-section,
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    .hero-content .description { font-size: 0.9rem; }
+    
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; }
+}
