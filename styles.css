@@ -760,7 +760,7 @@ body {
 }
 
 .footer-info .footer-logo-img {
-    height: 70px; /* ロゴの高さを調整 */
+    height: 80px; /* ロゴの高さを調整 */
     width: auto;
     margin-bottom: 20px;
 }
@@ -815,7 +815,7 @@ body {
 }
 
 .footer-nav li a:hover {
-    color: #F5A623;
+    color: #007BFF;
 }
 
 .footer-nav li a:hover::after {
@@ -909,7 +909,7 @@ body {
     }
     
     .mobile-nav-menu li a:hover {
-        color: #F5A623 !important;
+        color: #007BFF !important;
     }
 
     .hero-content h1 {
