@@ -215,7 +215,7 @@ body {
     color: white;
     text-align: center;
     overflow: hidden;
-    background: url('/splight_homepage01/images/header-background.jpg')center/cover no-repeat fixed;
+    background: url('/splight_homepage01/images/header-background.jpg') center/cover no-repeat fixed;
 }
 
 .hero-video {
@@ -735,7 +735,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* パスを修正 */
     background: url('/splight_homepage01/images/Agrivoltaics-background.jpg');
     background-size: cover;
     background-position: center;
@@ -781,15 +780,28 @@ body {
     gap: 20px;
     flex-wrap: wrap;
 }
+
+.cta-btn {
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
 .cta-buttons .cta-btn {
     background: white;
     color: #4CAF50;
 }
+
 .cta-buttons .cta-btn.secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
 }
+
 .cta-buttons .cta-btn.secondary:hover {
     background: white;
     color: #4CAF50;
@@ -874,30 +886,36 @@ body {
     transition: all 0.3s ease;
     border-top: 4px solid #4CAF50;
 }
+
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+
 .service-card h3 {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 15px;
 }
+
 .service-card p {
     color: #666;
     line-height: 1.7;
     margin-bottom: 20px;
 }
+
 .service-features {
     list-style: none;
     padding: 0;
     text-align: left;
 }
+
 .service-features li {
     padding: 5px 0 5px 25px;
     color: #555;
     position: relative;
 }
+
 .service-features li::before {
     content: '✓';
     position: absolute;
@@ -954,6 +972,13 @@ body {
     /* Footer */
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     .footer-info { grid-column: 1 / -1; margin-bottom: 20px; }
+
+    /* Agrivoltaics Page Responsive */
+    .section-title { font-size: 2.5rem; }
+    .service-grid { grid-template-columns: 1fr; }
+    .stats-grid-agri { grid-template-columns: 1fr; gap: 30px; }
+    .switch-buttons { flex-direction: column; align-items: center; }
+    .cta-buttons { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 480px) {
@@ -963,7 +988,8 @@ body {
     .company-section,
     .stats-section,
     .news-section,
-    .contact-section {
+    .contact-section,
+    .content-section {
         padding: 60px 0;
     }
 
@@ -973,4 +999,10 @@ body {
     
     /* Footer */
     .footer-grid { grid-template-columns: 1fr; }
+
+    /* Agrivoltaics Page Mobile */
+    .agrivoltaics-hero { padding: 100px 0 60px; }
+    .stats-section-agri { padding: 60px 0; }
+    .stat-item-agri h3 { font-size: 2.5rem; }
 }
+
