@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資材販売 - 株式会社splight</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header (省略) -->
+    
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #007BFF 0%, #0056B3 100%); height: 60vh;">
+        <div class="hero-content">
+            <h1>MATERIALS</h1>
+            <p>資材販売</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="company-section" style="padding: 50px 0;">
+        <div class="container">
+            <div class="text-center">
+                <h3>カテゴリで絞り込み</h3>
+                <div id="category-filter" style="margin-top: 20px;">
+                    <button class="more-btn active" onclick="filterMaterials('all')">すべて</button>
+                    <!-- カテゴリボタンは動的に生成 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Grid -->
+    <section class="business-section materials-section">
+        <div class="container">
+            <h2>Our Products</h2>
+            <h3>取扱い資材</h3>
+            
+            <!-- Loading indicator -->
+            <div id="materials-loading" style="text-align: center; padding: 50px;">
+                <p>読み込み中...</p>
+            </div>
+            
+            <!-- Materials container -->
+            <div id="materials-container" class="business-cards"></div>
+        </div>
+    </section>
+    
+    <!-- Footer (省略) -->
+    
+    <script src="js/script.js"></script>
+    <script>
+        let allMaterials = [];
+        let categories = [];
+        
+        // 資材データを取得
+        async function loadMaterials() {
+            try {
+                const [materialsResponse, categoriesResponse] = await Promise.all([
+                    fetch('/wp/wp-json/wp/v2/materials?per_page=100&_embed'),
+                    fetch('/wp/wp-json/wp/v2/material_category')
+                ]);
+                
+                allMaterials = await materialsResponse.json();
+                categories = await categoriesResponse.json();
+                
+                // カテゴリフィルターボタン生成
+                const filterContainer = document.getElementById('category-filter');
+                categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.className = 'more-btn';
+                    button.textContent = category.name;
+                    button.onclick = () => filterMaterials(category.id);
+                    filterContainer.appendChild(button);
+                });
+                
+                // 全資材表示
+                displayMaterials(allMaterials);
+                
+            } catch (error) {
+                console.error('資材データ取得エラー:', error);
+                document.getElementById('materials-loading').innerHTML = '<p>データの取得に失敗しました。</p>';
+            }
+        }
+        
+        function displayMaterials(materials) {
+            const container = document.getElementById('materials-container');
+            const loading = document.getElementById('materials-loading');
+            
+            container.innerHTML = '';
+            
+            materials.forEach(item => {
+                const materialCard = document.createElement('div');
+                materialCard.className = 'business-card';
+                
+                const featuredImage = item._embedded && item._embedded['wp:featuredmedia'] ? 
+                    item._embedded['wp:featuredmedia'][0].source_url : 
+                    'images/default-material.jpg';
+                
+                const price = item.meta && item.meta.price ? item.meta.price : 'お問い合わせください';
+                
+                materialCard.innerHTML = `
+                    <img src="${featuredImage}" alt="${item.title.rendered}" style="width:100%; height:200px; object-fit:cover; border-radius:5px; margin-bottom:15px;">
+                    <h4>${item.title.rendered}</h4>
+                    <p>${item.excerpt.rendered}</p>
+                    <div style="margin-top: 15px; font-weight: 600; color: #F5A623;">価格: ${price}</div>
+                    <div class="text-center" style="margin-top: 15px;">
+                        <a href="material-detail.html?id=${item.id}" class="more-btn">詳細を見る</a>
+                    </div>
+                `;
+                container.appendChild(materialCard);
+            });
+            
+            loading.style.display = 'none';
+        }
+        
+        function filterMaterials(categoryId) {
+            // ボタンのactive状態更新
+            document.querySelectorAll('#category-filter button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            if (categoryId === 'all') {
+                displayMaterials(allMaterials);
+            } else {
+                const filtered = allMaterials.filter(material => {
+                    const materialCategories = material._embedded['wp:term'] ? material._embedded['wp:term'][1] : [];
+                    return materialCategories.some(cat => cat.id === categoryId);
+                });
+                displayMaterials(filtered);
+            }
+        }
+        
+        // Initial load
+        loadMaterials();
+    </script>
+</body>
+</html>
