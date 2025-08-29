@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
-    padding-bottom: 120px;
 }
 
 .container {
@@ -19,7 +18,9 @@ body {
     padding: 0 20px;
 }
 
-/* Header Styles */
+/* =========================================================================
+   Header Styles
+   ========================================================================= */
 .site-header {
     position: fixed;
     top: 0;
@@ -52,6 +53,7 @@ body {
     width: auto;
 }
 
+/* --- Desktop Navigation --- */
 .main-nav {
     display: flex;
 }
@@ -60,14 +62,6 @@ body {
     display: flex;
     list-style: none;
     gap: 40px;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transition: all 0.3s ease;
-}
-
-.site-header:hover .nav-menu {
-    opacity: 1;
-    visibility: visible;
 }
 
 .nav-menu li a {
@@ -78,48 +72,17 @@ body {
     position: relative;
     display: block;
     padding: 10px 0;
-    transition: all 0.3s ease;
-}
-
-
-.site-header .logo,
-.site-header .nav-menu a {
-    color: white ;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.site-header.header-scrolled .nav-menu a,
-.site-header.header-scrolled .logo {
-    color: #333 !important;
-    text-shadow: none !important;
-}
-
-/* ページトップでは白文字 */
-.site-header:not(.header-scrolled) .logo,
-.site-header:not(.header-scrolled) .nav-menu a {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
-
-/* モバイルハンバーガーボタンの初期状態 */
-.site-header:not(.header-scrolled) .mobile-menu-toggle span {
-    background: white !important;
-}
-
-/* スクロール時のハンバーガーボタン */
-.site-header.header-scrolled .mobile-menu-toggle span {
-    background: #333 !important;
-}
-
-.mobile-menu-toggle.is-open span {
-    background: #333 !important;
 }
 
 .nav-menu li a span {
     font-size: 12px;
     font-weight: 300;
     opacity: 0.8;
+}
+
+.site-header .nav-menu a:hover {
+    color: #007BFF;
 }
 
 .nav-menu li a::after {
@@ -137,9 +100,20 @@ body {
     width: 100%;
 }
 
-/* Mobile Menu */
+/* --- Header Text Color States --- */
+.site-header:not(.header-scrolled) .nav-menu a {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.site-header.header-scrolled .nav-menu a {
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
+/* --- Mobile Navigation (Hamburger) --- */
 .mobile-menu-toggle {
-    display: none;
+    display: none; /* Initially hidden on desktop */
     flex-direction: column;
     background: none;
     border: none;
@@ -150,22 +124,17 @@ body {
 .mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: white;
     margin: 3px 0;
     transition: background-color 0.3s ease;
 }
 
-/* モバイルメニューが開いている（is-openクラスがある）時、
-   スクロール状態に関わらずアイコンを黒にする */
-.site-header .mobile-menu-toggle.is-open span {
-    background: #333 !important;
+.site-header:not(.header-scrolled) .mobile-menu-toggle span {
+    background: white !important;
 }
 
-.header-scrolled .mobile-menu-toggle span {
+.site-header.header-scrolled .mobile-menu-toggle span,
+.site-header .mobile-menu-toggle.is-open span {
     background: #333 !important;
-}
-.site-header:hover .mobile-menu-toggle span {
-    background: #333 ;
 }
 
 .mobile-menu {
@@ -174,9 +143,14 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(238, 238, 238, 0.8);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.mobile-menu.active {
+    display: block !important;
 }
 
 .mobile-nav-menu {
@@ -190,56 +164,34 @@ body {
 
 .mobile-nav-menu li a {
     text-decoration: none;
-    color: #333;
+    color: #333 !important;
     font-weight: 500;
     font-size: 16px;
     display: block;
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(238, 238, 238, 0.5);
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-.mobile-nav-menu li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #007BFF;
-    transition: width 0.3s ease;
+.mobile-nav-menu li a:hover {
+    color: #007BFF !important;
 }
 
-.mobile-nav-menu li a:hover::after {
-    width: 100%;
-}
 
-/* Hero Section */
+/* =========================================================================
+   Page Sections
+   ========================================================================= */
+
+/* --- Hero Section --- */
 .hero {
     height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     color: white;
     text-align: left;
-    padding-top: 0;
     overflow: hidden;
-    background: url('images/header-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    background: url('/splight_homepage01/images/header-background.jpg') center/cover no-repeat fixed;
 }
 
 .hero-video {
@@ -270,9 +222,6 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
     width: 100%;
 }
 
@@ -297,9 +246,13 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Company Section */
-.company-section {
+/* --- General Content Section Styles --- */
+.company-section, .business-section, .stats-section, .news-section, .contact-section {
     padding: 100px 0;
+}
+
+/* --- Company Section --- */
+.company-section {
     background: #f8f9fa;
 }
 
@@ -339,7 +292,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Partners Section */
+/* --- Partners Section --- */
 .partners-section {
     padding: 60px 0;
     background: white;
@@ -368,13 +321,17 @@ body {
     animation-play-state: paused;
 }
 
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 .partner-logo {
     height: 40px;
-    width: auto;
     margin: 0 40px;
     opacity: 0.7;
-    transition: opacity 0.3s ease;
     filter: grayscale(100%);
+    transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .partner-logo:hover {
@@ -382,24 +339,8 @@ body {
     filter: grayscale(0%);
 }
 
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-/* Agrivoltaics ページ */
-.chart-wrapper {
-    position: relative;
-    height: 350px; /* グラフの高さを指定 */
-    width: 100%;
-}
-
-/* Business Sections */
+/* --- Business Sections --- */
 .business-section {
-    padding: 100px 0;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -413,7 +354,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)); /* 白いオーバーレイで文字を読みやすく */
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
     z-index: 1;
 }
 
@@ -423,48 +364,15 @@ body {
 }
 
 .Agrivoltaics-section {
-    background-image: url('images/Agrivoltaics-background.jpg');
+    background-image: url('/splight_homepage01/images/agrivoltaics-background.jpg');
 }
 
 .self-consumption-section {
-    background-image: url('images/selfconsumption-background.jpg');
+    background-image: url('/splight_homepage01/images/selfconsumption-background.jpg');
 }
 
 .materials-section {
-    background-image: url('images/materials-background.jpg');
-}
-
-/* Agrivoltaics セクション */
-.Agrivoltaics-section .more-btn {
-    background: #7ED321;
-    box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3);
-}
-
-.Agrivoltaics-section .more-btn:hover {
-    background: #6BB91D;
-    box-shadow: 0 8px 25px rgba(126, 211, 33, 0.4);
-}
-
-/* Self Consumption セクション */
-.self-consumption-section .more-btn {
-    background: #F5A623;
-    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3);
-}
-
-.self-consumption-section .more-btn:hover {
-    background: #E6941A;
-    box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
-}
-
-/* Materials セクション */
-.materials-section .more-btn {
-    background: #007BFF;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-}
-
-.materials-section .more-btn:hover {
-    background: #0056B3;
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    background-image: url('/splight_homepage01/images/materials-background.jpg');
 }
 
 .business-section h2 {
@@ -506,7 +414,6 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #333;
 }
 
 .business-card p {
@@ -522,25 +429,27 @@ body {
 .more-btn {
     display: inline-block;
     padding: 15px 40px;
-    background: #F5A623;
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3);
 }
 
 .more-btn:hover {
-    background: #E6941A;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
 }
 
-/* Statistics Section */
+.Agrivoltaics-section .more-btn { background: #7ED321; box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3); }
+.Agrivoltaics-section .more-btn:hover { background: #6BB91D; box-shadow: 0 8px 25px rgba(126, 211, 33, 0.4); }
+.self-consumption-section .more-btn { background: #F5A623; box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3); }
+.self-consumption-section .more-btn:hover { background: #E6941A; box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4); }
+.materials-section .more-btn { background: #007BFF; box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); }
+.materials-section .more-btn:hover { background: #0056B3; box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); }
+
+/* --- Statistics Section --- */
 .stats-section {
-    padding: 100px 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
@@ -564,27 +473,17 @@ body {
     font-weight: 300;
 }
 
-/* News Section */
+/* --- News Section --- */
 .news-section {
-    padding: 100px 0;
     background: white;
 }
 
-.news-section h2 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+.news-section h2, .news-section h3 {
     text-align: center;
     color: #333;
 }
-
-.news-section h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #666;
-    margin-bottom: 3rem;
-    text-align: center;
-}
+.news-section h2 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
+.news-section h3 { font-size: 1.8rem; font-weight: 500; color: #666; margin-bottom: 3rem; }
 
 .news-list {
     max-width: 800px;
@@ -615,25 +514,10 @@ body {
     text-align: center;
 }
 
-.news-category.Agrivoltaics {
-    background: #7ED321;
-}
-
-.news-category.self-consumption {
-    background: #F5A623;
-}
-
-.news-category.materials {
-    background: #007BFF;
-}
-
-.news-category.general {
-    background: #666;
-}
-
-.news-title {
-    flex: 1;
-}
+.news-category.Agrivoltaics { background: #7ED321; }
+.news-category.self-consumption { background: #F5A623; }
+.news-category.materials { background: #007BFF; }
+.news-category.general { background: #666; }
 
 .news-title a {
     text-decoration: none;
@@ -655,22 +539,17 @@ body {
     color: #F5A623;
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid transparent;
     transition: border-color 0.3s ease;
 }
 
 .news-more a:hover {
-    border-bottom-color: #F5A623;
+    border-bottom: 1px solid #F5A623;
 }
 
-/* Contact Section */
+/* --- Contact Section --- */
 .contact-section {
-    padding: 100px 0;
     position: relative;
-    background-image: url('images/contact-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: url('/splight_homepage01/images/contact-background.jpg') center/cover no-repeat fixed;
     text-align: center;
     color: white;
 }
@@ -691,25 +570,14 @@ body {
     z-index: 2;
 }
 
-.contact-section h2 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+.contact-section h2, .contact-section h3 {
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-
-.contact-section h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: white;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
+.contact-section h2 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
+.contact-section h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 2rem; }
 .contact-section p {
     font-size: 1.1rem;
-    color: white;
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
@@ -736,9 +604,12 @@ body {
     box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
 }
 
-/* Footer */
+
+/* =========================================================================
+   New Footer Styles
+   ========================================================================= */
 .site-footer-new {
-    background-color: #f8f9fa; /* 薄いグレーの背景 */
+    background-color: #f8f9fa;
     color: #555;
     padding: 60px 0 20px 0;
     border-top: 1px solid #e9ecef;
@@ -746,7 +617,7 @@ body {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr; /* 4列レイアウト、1列目を少し広く */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -759,237 +630,4 @@ body {
     text-transform: uppercase;
 }
 
-.footer-info .footer-logo-img {
-    height: 80px; /* ロゴの高さを調整 */
-    width: auto;
-    margin-bottom: 20px;
-}
-
-.footer-info p {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-
-.footer-info .company-name {
-    font-weight: bold;
-    color: #333;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #555;
-    font-size: 15px;
-    position: relative;
-    padding-bottom: 5px; /* 下線のスペースを確保 */
-    transition: color 0.3s ease;
-}
-
-.footer-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #007BFF;
-    transition: width 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #007BFF; /* ホバー時に文字色も青に */
-}
-
-.footer-links a:hover::after {
-    width: 100%; /* ホバー時に下線を表示 */
-}
-
-.footer-nav li a:hover {
-    color: #007BFF;
-}
-
-.footer-nav li a:hover::after {
-    width: 100%;
-}
-
-
-
-.footer-bottom {
-    border-top: 1px solid #e0e0e0;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-}
-
-.footer-contact {
-    color: #333;
-    font-size: 14px;
-}
-.footer-contact {
-    color: white;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  
-    .contact-section {
-        background-attachment: scroll;
-    }
-    
-    .contact-section h2 {
-        font-size: 2.5rem;
-    }
-    
-    .site-footer {
-        position: relative;
-        padding: 40px 0;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr; /* 2列レイアウトに変更 */
-        gap: 30px;
-    }
-    
-    .footer-info {
-        grid-column: 1 / -1; /* 会社情報セクションを全幅に */
-        margin-bottom: 20px;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .footer-nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .main-nav {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-       display: flex !important;
-    }
-    
-     .mobile-menu {
-        background: rgba(255, 255, 255, 0.98) !important; /* より不透明に */
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* 影を追加 */
-    }
-    
-    .mobile-menu.active {
-        display: block !important;
-    }
-    
-    .mobile-nav-menu li a {
-        color: #333 !important;
-        padding: 15px 0;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 16px;
-        display: block;
-        border-bottom: 1px solid rgba(238, 238, 238, 0.5);
-        transition: color 0.3s ease;
-    }
-    
-    .mobile-nav-menu li a:hover {
-        color: #007BFF !important;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-    
-    .company-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .company-text h2,
-    .business-section h2,
-    .news-section h2,
-    .contact-section h2 {
-        font-size: 2.5rem;
-    }
-    
-    .business-section {
-        background-attachment: scroll; /* モバイルでは固定背景を無効 */
-    }
-    
-    .business-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .news-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header {
-        background-attachment: scroll;
-    }
-     .footer-grid {
-        grid-template-columns: 1fr; /* 1列レイアウトに変更 */
-    }
-    
-    .hero {
-        background-attachment: scroll;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .hero-content .description {
-        font-size: 0.9rem;
-    }
-    
-    .container {
-        padding: 0 15px;
-    }
-    
-    .business-section,
-    .company-section,
-    .stats-section,
-    .news-section,
-    .contact-section {
-        padding: 60px 0;
-    }
-}
+.footer-info .footer-logo-img
