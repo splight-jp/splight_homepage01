@@ -142,17 +142,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // ---------------------------------------------------------------------
     // ⑥ ビデオ関連の機能（index.html用）
     // ---------------------------------------------------------------------
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-        heroVideo.play().catch(error => console.log('Video autoplay failed:', error));
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                heroVideo.pause();
-            } else {
-                heroVideo.play().catch(error => console.log('Video resume failed:', error));
-            }
-        });
-    }
+const heroVideo = document.getElementById('hero-video');
+const heroSection = document.querySelector('.hero');
+
+if (heroVideo && heroSection) {
+    // 動画が読み込まれた場合
+    heroVideo.addEventListener('loadeddata', function() {
+        heroSection.classList.add('video-loaded');
+        console.log('Hero video loaded successfully');
+    });
+    
+    // 動画読み込みエラーの場合
+    heroVideo.addEventListener('error', function() {
+        console.log('Hero video failed to load, using background image');
+        heroVideo.style.display = 'none';
+    });
+    
+    // 動画の再生準備完了
+    heroVideo.addEventListener('canplay', function() {
+        console.log('Hero video can start playing');
+    });
+    
+    // 自動再生の実行
+    heroVideo.play().catch(error => console.log('Video autoplay failed:', error));
+    
+    // ページの表示切り替えに対応
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            heroVideo.pause();
+        } else {
+            heroVideo.play().catch(error => console.log('Video resume failed:', error));
+        }
+    });
+}
     
     // ---------------------------------------------------------------------
     // ⑦ Agrivoltaicsページ専用のグラフ描画機能
