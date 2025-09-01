@@ -745,6 +745,141 @@ body {
 }
 
 /* =========================================================================
+   Location Section Styles
+   ========================================================================= */
+.location-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.location-section h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.location-section h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.address-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.address-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.address-card .address {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.contact-info {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.access-info {
+    background: #fff;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+}
+
+.access-info h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.access-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.access-info li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.access-info li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .location-section {
+        padding: 60px 0;
+    }
+    
+    .location-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .address-card,
+    .access-info {
+        padding: 20px;
+    }
+    
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+/* =========================================================================
    Agrivoltaics Page Specific Styles
    ========================================================================= */
 
