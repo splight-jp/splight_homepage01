@@ -473,6 +473,8 @@ body {
     transform: translateY(-2px);
 }
 
+.company-section .more-btn { background: #333333; box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); }
+.company-section .more-btn:hover { background: #495057; box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); }
 .Agrivoltaics-section .more-btn { background: #7ED321; box-shadow: 0 5px 15px rgba(126, 211, 33, 0.3); }
 .Agrivoltaics-section .more-btn:hover { background: #6BB91D; box-shadow: 0 8px 25px rgba(126, 211, 33, 0.4); }
 .self-consumption-section .more-btn { background: #F5A623; box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3); }
