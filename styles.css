@@ -726,6 +726,23 @@ body {
     font-size: 13px;
     color: #888;
 }
+/* =========================================================================
+   company Page Specific Styles
+   ========================================================================= */
+.company-hero {
+    height: 50vh;
+    min-height: 350px;
+    max-height: 450px;
+    padding: 60px 0;
+}
+
+@media (max-width: 768px) {
+    .company-hero {
+        height: 40vh;
+        min-height: 300px;
+        padding: 40px 0;
+    }
+}
 
 /* =========================================================================
    Agrivoltaics Page Specific Styles
