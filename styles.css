@@ -976,6 +976,7 @@ body {
         height: 40vh;
         min-height: 300px;
         padding: 40px 0;
+        background-attachment: scroll;
     }
     .com-business-grid {
         grid-template-columns: 1fr !important;
