@@ -792,10 +792,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.com-business-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
 
 .com-business-item:nth-child(even) {
     direction: rtl;
