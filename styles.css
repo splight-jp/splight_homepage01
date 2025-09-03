@@ -437,11 +437,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.business-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
 .business-card h4 {
     font-size: 1.3rem;
     font-weight: 600;
