@@ -745,7 +745,7 @@ body {
    company Page Specific Styles
    ========================================================================= */
 .company-hero {
-    height: 50vh;
+    height: 60vh;
     min-height: 350px;
     max-height: 450px;
     padding: 60px 0;
