@@ -484,8 +484,28 @@ body {
 
 /* --- Statistics Section --- */
 .stats-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('/splight_homepage01/images/vision-background.jpg') center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
+    position: relative;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+    z-index: 1;
+}
+
+.stats-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .stats-grid {
@@ -790,18 +810,26 @@ body {
 .com-business-item:nth-child(even) .business-image {
     direction: ltr;
 }
+    
+.com-business-text {
+    order: 1;
+    padding: 1.5rem;
+    text-align: left;
+}
 
 .com-business-text h4 {
     font-size: 2rem;
     font-weight: 700;
     color: #333;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .com-business-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
+    text-align: left;
 }
 
 .com-business-image img {
@@ -857,6 +885,8 @@ body {
     position: relative;
     z-index: 10;
     min-width: 120px;
+    text-align: center;
+    line-height: 1;
 }
 
 .business-btn:hover {
@@ -877,9 +907,48 @@ body {
     box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
 }
 
+/* エネルギー事業のボタン - 青 */
+.com-business-item:nth-child(1) .business-btn {
+    background: linear-gradient(135deg, #007BFF 0%, #0056B3 100%) !important;
+}
+
+.com-business-item:nth-child(1) .business-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* 教育事業のボタン - オレンジ */
+.com-business-item:nth-child(2) .business-btn {
+    background: linear-gradient(135deg, #F5A623 0%, #E6941A 100%) !important;
+}
+
+.com-business-item:nth-child(2) .business-btn:hover {
+    box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+}
+
+/* 営農事業のボタン - 緑 */
+.com-business-item:nth-child(3) .business-btn {
+    background: linear-gradient(135deg, #7ED321 0%, #6BB91D 100%) !important;
+}
+
+.com-business-item:nth-child(3) .business-btn:hover {
+    box-shadow: 0 6px 20px rgba(126, 211, 33, 0.4);
+}
+
+.business-btn.disabled {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%) !important;
+    cursor: not-allowed !important;
+    opacity: 0.8;
+}
+
 .philosophy-btn-container {
     margin-top: 2rem;
     text-align: left; 
+}
+
+.button-container {
+    text-align: left;
+    margin: 2rem 0;
+    padding: 1rem 0;
 }
 
 @media (max-width: 768px) {
@@ -892,7 +961,7 @@ body {
         min-height: 300px;
         padding: 40px 0;
     }
-        .com-business-grid {
+    .com-business-grid {
         grid-template-columns: 1fr !important;
         gap: 3rem;
     }
@@ -901,19 +970,9 @@ body {
         flex-direction: column;
         text-align: center;
     }
-    
-    .com-business-text {
-        order: 1;
-        padding: 1.5rem;
-    }
-    
+        
     .com-business-image {
         order: 2;
-    }
-    
-    .com-business-text h4 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
     }
 
     .business-btn {
