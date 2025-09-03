@@ -729,7 +729,7 @@ body {
 /* =========================================================================
    company Page Specific Styles
    ========================================================================= */
-.com-hero {
+.company-hero {
     height: 50vh;
     min-height: 350px;
     max-height: 450px;
@@ -804,7 +804,7 @@ body {
     color: #555;
 }
 
-.company-business-image img {
+.com-business-image img {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -830,7 +830,7 @@ body {
     align-items: center;
 }
 
-.com-container {
+.company-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -841,7 +841,7 @@ body {
     margin: 2rem 0;
 }
 
-.com-btn {
+.company-btn {
     display: inline-block;
     padding: 14px 32px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -852,7 +852,23 @@ body {
     transition: all 0.3s ease;
 }
 
-.com-btn.disabled {
+.company-btn.disabled {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    cursor: not-allowed;
+}
+
+.business-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.business-btn.disabled {
     background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
     cursor: not-allowed;
 }
