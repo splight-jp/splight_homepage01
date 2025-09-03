@@ -729,19 +729,19 @@ body {
 /* =========================================================================
    company Page Specific Styles
    ========================================================================= */
-.company-hero {
+.com-hero {
     height: 50vh;
     min-height: 350px;
     max-height: 450px;
     padding: 60px 0;
 }
-.company-business-section {
+.com-business-section {
     position: relative;
     background: #f8f9fa;
     padding: 100px 0;
 }
 
-.company-business-section h2 {
+.com-business-section h2 {
     text-align: center;
     font-size: 4rem;
     font-weight: 700;
@@ -749,7 +749,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.company-business-section h3 {
+.com-business-section h3 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 500;
@@ -757,7 +757,7 @@ body {
     margin-bottom: 4rem;
 }
 
-.company-business-grid {
+.com-business-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
@@ -765,7 +765,7 @@ body {
     margin: 0 auto;
 }
 
-.company-business-item {
+.com-business-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -777,28 +777,28 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.company-business-item:hover {
+.com-business-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-.company-business-item:nth-child(even) {
+.com-business-item:nth-child(even) {
     direction: rtl;
 }
 
-.company-business-item:nth-child(even) .business-text,
-.company-business-item:nth-child(even) .business-image {
+.com-business-item:nth-child(even) .business-text,
+.com-business-item:nth-child(even) .business-image {
     direction: ltr;
 }
 
-.company-business-text h4 {
+.com-business-text h4 {
     font-size: 2rem;
     font-weight: 700;
     color: #333;
     margin-bottom: 1rem;
 }
 
-.company-business-text p {
+.com-business-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
@@ -811,29 +811,50 @@ body {
     border-radius: 10px;
 }
 
-.company-agrivoltaics-section {
+.com-agrivoltaics-section {
     background-image: url('/splight_homepage01/images/agrivoltaics-background.jpg');
 }
 
-.company-self-consumption-section {
+.com-self-consumption-section {
     background-image: url('/splight_homepage01/images/selfconsumption-background.jpg');
 }
 
-.company-materials-section {
+.com-materials-section {
     background-image: url('/splight_homepage01/images/materials-background.jpg');
 }
 
-.company-business-content {
+.com-business-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
 }
 
-.company-container {
+.com-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.com-button-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.com-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.com-btn.disabled {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    cursor: not-allowed;
 }
 
 
