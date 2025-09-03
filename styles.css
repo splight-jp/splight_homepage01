@@ -879,7 +879,7 @@ body {
 
 .philosophy-btn-container {
     margin-top: 2rem;
-    text-align: center;
+    text-align: left; 
 }
 
 @media (max-width: 768px) {
