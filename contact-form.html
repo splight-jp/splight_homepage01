@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エネルギー事業お問い合わせ - 株式会社splight</title>
+    <link rel="stylesheet" href="contact-energy.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <!-- ロゴ画像のパスは実際のロゴファイルのパスに変更してください -->
+                <img src="assets/logo.png" alt="株式会社splight" class="logo-img">
+                <!-- ロゴ画像がない場合のテキスト表示 -->
+                <div class="logo-text-fallback">
+                    <span class="logo-main">splight</span>
+                    <span class="logo-sub">エネルギー事業</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">ホーム</a>
+                <a href="#energy">エネルギー事業</a>
+                <a href="company.html">会社概要</a>
+                <a href="#" class="active">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="hero-section">
+            <h1 class="page-title">
+                <i class="fas fa-solar-panel"></i>
+                エネルギー事業お問い合わせ
+            </h1>
+            <p class="hero-subtitle">
+                営農型太陽光発電・自家消費型太陽光発電に関するご相談を承っております
+            </p>
+        </div>
+
+        <div class="container">
+            <!-- 実績表示 -->
+            <div class="achievements">
+                <div class="achievement-item">
+                    <div class="achievement-number">100<span class="unit">件超</span></div>
+                    <div class="achievement-label">営農型太陽光発電<br>導入実績</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-number">50<span class="unit">件超</span></div>
+                    <div class="achievement-label">自家消費太陽光発電<br>導入実績</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-number">30<span class="unit">社以上</span></div>
+                    <div class="achievement-label">連携先<br>工事店数</div>
+                </div>
+            </div>
+
+            <!-- お問い合わせフォーム -->
+            <form id="energyContactForm" class="contact-form">
+                <!-- サービス選択セクション -->
+                <section class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-number">01</span>
+                        ご相談内容
+                    </h2>
+                    
+                    <div class="service-selector">
+                        <label class="service-card">
+                            <input type="radio" name="serviceType" value="営農型太陽光発電" required>
+                            <div class="service-content">
+                                <i class="fas fa-seedling"></i>
+                                <h3>営農型太陽光発電</h3>
+                                <p>ソーラーシェアリング</p>
+                            </div>
+                        </label>
+                        <label class="service-card">
+                            <input type="radio" name="serviceType" value="自家消費型太陽光発電" required>
+                            <div class="service-content">
+                                <i class="fas fa-building"></i>
+                                <h3>自家消費型太陽光発電</h3>
+                                <p>事業所・工場向け</p>
+                            </div>
+                        </label>
+                        <label class="service-card">
+                            <input type="radio" name="serviceType" value="メンテナンス" required>
+                            <div class="service-content">
+                                <i class="fas fa-tools"></i>
+                                <h3>メンテナンス</h3>
+                                <p>既存設備の保守管理</p>
+                            </div>
+                        </label>
+                        <label class="service-card">
+                            <input type="radio" name="serviceType" value="その他" required>
+                            <div class="service-content">
+                                <i class="fas fa-comment-dots"></i>
+                                <h3>その他のご相談</h3>
+                                <p>資材購入・補助金等</p>
+                            </div>
+                        </label>
+                    </div>
+                    <span class="error-message" id="serviceTypeError">ご相談内容を選択してください</span>
+
+                    <!-- 詳細選択（動的表示） -->
+                    <div id="detailOptions" class="detail-options" style="display: none;">
+                        <label for="detailType">詳細項目 <span class="required">*</span></label>
+                        <select id="detailType" name="detailType">
+                            <option value="">選択してください</option>
+                        </select>
+                    </div>
+
+                    <!-- システムタイプ選択（営農型選択時のみ表示） -->
+                    <div id="systemTypeSection" class="system-type-section" style="display: none;">
+                        <label>検討中のシステムタイプ（複数選択可）</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="藤棚型">
+                                <span>藤棚型</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="垂直型">
+                                <span>垂直型</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="ハウス型">
+                                <span>ハウス型</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="一軸追尾型">
+                                <span>一軸追尾型</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="フレキシブル型">
+                                <span>フレキシブル型</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="systemType" value="未定">
+                                <span>未定</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 設置情報セクション -->
+                <section class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-number">02</span>
+                        設置予定情報
+                    </h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="installArea">設置予定面積</label>
+                            <input type="text" id="installArea" name="installArea" placeholder="例：1000平米">
+                        </div>
+                        <div class="form-group">
+                            <label for="installLocation">設置予定地域 <span class="required">*</span></label>
+                            <select id="installLocation" name="installLocation" required>
+                                <option value="">都道府県を選択</option>
+                                <option value="北海道">北海道</option>
+                                <option value="青森県">青森県</option>
+                                <option value="岩手県">岩手県</option>
+                                <option value="宮城県">宮城県</option>
+                                <option value="秋田県">秋田県</option>
+                                <option value="山形県">山形県</option>
+                                <option value="福島県">福島県</option>
+                                <option value="茨城県">茨城県</option>
+                                <option value="栃木県">栃木県</option>
+                                <option value="群馬県">群馬県</option>
+                                <option value="埼玉県">埼玉県</option>
+                                <option value="千葉県">千葉県</option>
+                                <option value="東京都">東京都</option>
+                                <option value="神奈川県">神奈川県</option>
+                                <option value="新潟県">新潟県</option>
+                                <option value="富山県">富山県</option>
+                                <option value="石川県">石川県</option>
+                                <option value="福井県">福井県</option>
+                                <option value="山梨県">山梨県</option>
+                                <option value="長野県">長野県</option>
+                                <option value="岐阜県">岐阜県</option>
+                                <option value="静岡県">静岡県</option>
+                                <option value="愛知県">愛知県</option>
+                                <option value="三重県">三重県</option>
+                                <option value="滋賀県">滋賀県</option>
+                                <option value="京都府">京都府</option>
+                                <option value="大阪府">大阪府</option>
+                                <option value="兵庫県">兵庫県</option>
+                                <option value="奈良県">奈良県</option>
+                                <option value="和歌山県">和歌山県</option>
+                                <option value="鳥取県">鳥取県</option>
+                                <option value="島根県">島根県</option>
+                                <option value="岡山県">岡山県</option>
+                                <option value="広島県">広島県</option>
+                                <option value="山口県">山口県</option>
+                                <option value="徳島県">徳島県</option>
+                                <option value="香川県">香川県</option>
+                                <option value="愛媛県">愛媛県</option>
+                                <option value="高知県">高知県</option>
+                                <option value="福岡県">福岡県</option>
+                                <option value="佐賀県">佐賀県</option>
+                                <option value="長崎県">長崎県</option>
+                                <option value="熊本県">熊本県</option>
+                                <option value="大分県">大分県</option>
+                                <option value="宮崎県">宮崎県</option>
+                                <option value="鹿児島県">鹿児島県</option>
+                                <option value="沖縄県">沖縄県</option>
+                            </select>
+                            <span class="error-message" id="installLocationError">設置予定地域を選択してください</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">予算規模</label>
+                            <select id="budget" name="budget">
+                                <option value="">選択してください</option>
+                                <option value="500万円未満">500万円未満</option>
+                                <option value="500万円～1000万円">500万円～1000万円</option>
+                                <option value="1000万円～3000万円">1000万円～3000万円</option>
+                                <option value="3000万円～5000万円">3000万円～5000万円</option>
+                                <option value="5000万円～1億円">5000万円～1億円</option>
+                                <option value="1億円以上">1億円以上</option>
+                                <option value="未定">未定</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">導入予定時期</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">選択してください</option>
+                                <option value="3ヶ月以内">3ヶ月以内</option>
+                                <option value="6ヶ月以内">6ヶ月以内</option>
+                                <option value="1年以内">1年以内</option>
+                                <option value="1年以上先">1年以上先</option>
+                                <option value="未定">未定</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- お客様情報セクション -->
+                <section class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-number">03</span>
+                        お客様情報
+                    </h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="companyName">会社名・団体名 <span class="required">*</span></label>
+                            <input type="text" id="companyName" name="companyName" required placeholder="株式会社○○">
+                            <span class="error-message" id="companyNameError">会社名を入力してください</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">部署名</label>
+                            <input type="text" id="department" name="department" placeholder="総務部">
+                        </div>
+                        <div class="form-group">
+                            <label for="fullName">ご担当者名 <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="山田 太郎">
+                            <span class="error-message" id="fullNameError">お名前を入力してください</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullNameKana">フリガナ <span class="required">*</span></label>
+                            <input type="text" id="fullNameKana" name="fullNameKana" required placeholder="ヤマダ タロウ" pattern="[\u30A0-\u30FF\s]+">
+                            <span class="error-message" id="fullNameKanaError">カタカナで入力してください</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="info@example.com">
+                            <span class="error-message" id="emailError">有効なメールアドレスを入力してください</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号 <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0848-51-6602">
+                            <span class="error-message" id="phoneError">電話番号を入力してください</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 詳細内容セクション -->
+                <section class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-number">04</span>
+                        ご相談内容詳細
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="message">ご相談内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" required rows="8" placeholder="ご相談内容を詳しくご記入ください。&#10;&#10;例：&#10;・現在の電気使用状況&#10;・設置場所の条件（屋根、土地など）&#10;・希望する発電規模&#10;・その他ご要望など"></textarea>
+                        <span class="error-message" id="messageError">ご相談内容を入力してください</span>
+                    </div>
+
+                    <!-- 現地調査希望 -->
+                    <div class="site-survey">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="siteSurvey" name="siteSurvey">
+                            <span>無料現地調査を希望する</span>
+                        </label>
+                        <p class="help-text">※現地調査は無料で実施しております。詳細な提案をご希望の方はチェックしてください。</p>
+                    </div>
+                </section>
+
+                <!-- プライバシーポリシー -->
+                <section class="privacy-section">
+                    <label class="privacy-label">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <span>
+                            <a href="#" target="_blank">プライバシーポリシー</a>に同意の上、送信します。
+                            <span class="required">*</span>
+                        </span>
+                    </label>
+                    <span class="error-message" id="privacyError">プライバシーポリシーへの同意が必要です</span>
+                </section>
+
+                <!-- 送信ボタン -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i> リセット
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> 送信する
+                    </button>
+                </div>
+
+                <!-- ローディング表示 -->
+                <div class="loading" id="loadingIndicator">
+                    <div class="spinner"></div>
+                    <p>送信中です...</p>
+                </div>
+            </form>
+
+            <!-- 送信完了メッセージ -->
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <h2>お問い合わせを受け付けました</h2>
+                <p>ご記入いただいたメールアドレス宛に確認メールをお送りしました。</p>
+                <p>担当者より2営業日以内にご連絡させていただきます。</p>
+                <button onclick="location.reload()" class="btn btn-primary">
+                    新しいお問い合わせ
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>株式会社splight</h3>
+                <p>〒722-0034 広島県尾道市十四日元町3-21 Sビル3F</p>
+                <p>TEL: 0848-51-6602 | Email: info@splight.co.jp</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">サイトマップ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 株式会社splight All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="contact-energy.js"></script>
+</body>
+</html>
