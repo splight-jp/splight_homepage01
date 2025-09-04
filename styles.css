@@ -984,12 +984,13 @@ body {
     }
     
     .com-business-item {
+        display: flex;
         flex-direction: column;
         text-align: center;
     }
-      .com-busines-text {
+    .com-business-text {
         order: 1;
-  }
+    }
         
     .com-business-image {
         order: 2;
