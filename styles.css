@@ -987,6 +987,9 @@ body {
         flex-direction: column;
         text-align: center;
     }
+      .com-busines-text {
+        order: 1;
+  }
         
     .com-business-image {
         order: 2;
