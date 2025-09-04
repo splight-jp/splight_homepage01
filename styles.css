@@ -855,8 +855,8 @@ body {
     border-radius: 10px;
 }
 
-.com-agrivoltaics-section {
-    background-image: url('/splight_homepage01/images/agrivoltaics-background.jpg');
+.com-Agrivoltaics-section {
+    background-image: url('/splight_homepage01/images/Agrivoltaics-background.jpg');
 }
 
 .com-self-consumption-section {
@@ -1140,7 +1140,7 @@ body {
    ========================================================================= */
 
 /* --- Hero Section for Agrivoltaics Page --- */
-.agrivoltaics-hero {
+.Agrivoltaics-hero {
     background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 25%, #CDDC39 50%, #FFEB3B 75%, #FFC107 100%);
     color: white;
     padding: 120px 0 80px;
@@ -1149,7 +1149,7 @@ body {
     overflow: hidden;
 }
 
-.agrivoltaics-hero::before {
+.Agrivoltaics-hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1163,7 +1163,7 @@ body {
     z-index: 1;
 }
 
-.agrivoltaics-hero .container {
+.Agrivoltaics-hero .container {
     position: relative;
     z-index: 2;
 }
@@ -1422,7 +1422,7 @@ body {
     .footer-grid { grid-template-columns: 1fr; }
 
     /* Agrivoltaics Page Mobile */
-    .agrivoltaics-hero { padding: 100px 0 60px; }
+    .Agrivoltaics-hero { padding: 100px 0 60px; }
     .stats-section-agri { padding: 60px 0; }
     .stat-item-agri h3 { font-size: 2.5rem; }
 }
