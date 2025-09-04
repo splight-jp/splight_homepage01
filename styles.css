@@ -955,6 +955,13 @@ body {
     cursor: not-allowed !important;
     opacity: 0.8;
 }
+.philosophy-text h4 {
+  font-size: 2.2rem; 
+  font-weight: 700; 
+  line-height: 1.5;
+  margin-bottom: 1.5rem; 
+  color: #333;  
+}
 
 .philosophy-btn-container {
     margin-top: 2rem;
@@ -965,6 +972,52 @@ body {
     text-align: left;
     margin: 2rem 0;
     padding: 1rem 0;
+}
+/* Our Vision セクションのテキストスタイル調整 */
+.vision-section h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.vision-section h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  color: #eee; /* 背景が暗くなるため明るい色に */
+  margin-bottom: 2rem;
+}
+
+.vision-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px; /* 横幅を制限して読みやすくする */
+  margin: 0 auto;   /* 中央寄せ */
+  text-align: center;
+}
+    
+    
+.vision-section {
+  position: relative; /* オーバーレイを重ねるための基準位置 */
+  padding: 100px 0;
+  background-image: url('images/vision-background.jpg'); /* ✅ ここにお好きな画像のパスを指定 */
+  background-size: cover; /* 画像をセクション全体に表示 */
+  background-position: center; /* 画像の中央を表示 */
+  background-attachment: fixed; /* スクロールしても背景を固定（パララックス効果） */
+  color: white; /* テキストを白色に */
+  z-index: 1;
+}
+
+.vision-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 黒色の50%の透明度。0.5の数値を変更すると濃さが変わります */
+  z-index: -1; /* テキストの下に配置 */
 }
 
 @media (max-width: 768px) {
