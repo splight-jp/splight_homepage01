@@ -745,14 +745,15 @@ body {
    company Page Specific Styles
    ========================================================================= */
 .company-hero {
-    height: 60vh;
-    min-height: 350px;
-    max-height: 450px;
-    padding: 60px 0;
+    height: 50dvh; 
+    min-height: 350px; 
+    display: flex;
+    align-items: center;     /* 垂直中央 */
+    justify-content: center; /* 水平中央 */
+    padding: 0;
     position: relative;
-    background: url('/splight_homepage01/images/company-image.jpg') center/cover no-repeat fixed;
-    background-size: cover;
-    background-position: center;
+    background: url('/energy/images/company-image.jpg') center/cover no-repeat;
+    background-attachment: fixed; 
     color: white;
     text-align: center;
     overflow: hidden;
