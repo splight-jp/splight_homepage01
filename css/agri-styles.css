@@ -113,7 +113,8 @@ body {
     position: relative;
     display: block;
     padding: 10px 0;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
+    color: #000 !important;
 }
 
 .nav-menu li a span {
