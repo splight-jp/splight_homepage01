@@ -70,17 +70,17 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
     z-index: 1000;
+    transition: all 0.3s ease;
     padding: 20px 0;
-    border-bottom: 1px solid rgba(238, 238, 238, 0.8);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
 
-.site-header.header-hidden {
-    transform: translateY(-100%);
+.site-header:hover {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(238, 238, 238, 0.8);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .header-container {
@@ -116,8 +116,7 @@ body {
     position: relative;
     display: block;
     padding: 10px 0;
-    transition: color 0.3s ease;
-    color: #333;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-menu li a span {
@@ -126,7 +125,7 @@ body {
     opacity: 0.8;
 }
 
-.nav-menu li a:hover {
+.site-header .nav-menu a:hover {
     color: #007BFF;
 }
 
@@ -145,9 +144,43 @@ body {
     width: 100%;
 }
 
+/* --- Header Text Color States --- */
+.site-header:not(.header-scrolled):hover .mobile-menu-toggle span {
+    background: #333 !important;
+}
+
+.site-header.header-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header:not(.header-scrolled):hover {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header:not(.header-scrolled):hover .nav-menu a {
+    color: #333 !important;
+    text-shadow: none;
+}
+
+/* ページトップでは白文字 */
+.site-header:not(.header-scrolled) .nav-menu a {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* スクロール後、またはホバー時の文字色 */
+.site-header.header-scrolled .nav-menu a {
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
 /* --- Mobile Navigation (Hamburger) --- */
 .mobile-menu-toggle {
-    display: none;
+    display: none; /* Initially hidden on desktop */
     flex-direction: column;
     background: none;
     border: none;
@@ -159,8 +192,16 @@ body {
     width: 25px;
     height: 3px;
     margin: 3px 0;
-    background: #333;
     transition: background-color 0.3s ease;
+}
+
+.site-header:not(.header-scrolled) .mobile-menu-toggle span {
+    background: white !important;
+}
+
+.site-header.header-scrolled .mobile-menu-toggle span,
+.site-header .mobile-menu-toggle.is-open span {
+    background: #333 !important;
 }
 
 .mobile-menu {
@@ -836,37 +877,89 @@ body {
 /* =========================================================================
    Footer Styles
    ========================================================================= */
-.site-footer {
-    background: #333;
-    color: white;
-    padding: 40px 0 20px 0;
+.site-footer-new {
+    background-color: #f8f9fa;
+    color: #555;
+    padding: 60px 0 20px 0;
+    border-top: 1px solid #e9ecef;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-info .footer-logo-img {
+    height: 80px;
+    width: auto;
     margin-bottom: 20px;
 }
 
-.footer-logo img {
-    height: 40px;
+.footer-info p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
 }
 
-.footer-info p {
-    margin-bottom: 5px;
-    color: #ccc;
+.footer-info .company-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #007BFF;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007BFF;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
 }
 
 .footer-bottom {
-    text-align: center;
+    border-top: 1px solid #e0e0e0;
     padding-top: 20px;
-    border-top: 1px solid #555;
-}
-
-.footer-bottom p {
-    color: #999;
-    font-size: 0.9rem;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
 }
 
 /* =========================================================================
