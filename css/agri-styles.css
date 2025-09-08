@@ -208,7 +208,7 @@ body {
    ========================================================================= */
 .agrivoltaics-hero {
     background: linear-gradient(135deg, #4CAF50 0%, #FFC107 100%);
-    min-height: 60vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
